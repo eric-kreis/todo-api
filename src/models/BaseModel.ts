@@ -5,16 +5,29 @@ import {
   ObjectId,
   OptionalUnlessRequiredId,
 } from 'mongodb';
-
-import { IDefaultKeys } from '../interfaces/models';
+import IDefaultKeys from '../interfaces/models/IDefaultKeys';
 
 abstract class BaseModel<TDocSchema extends IDefaultKeys> {
-  protected readonly collection: Collection<TDocSchema & IDefaultKeys>;
+  private readonly collection: Collection<TDocSchema & IDefaultKeys>;
 
   constructor(db: Db, collectionName: string) {
     this.collection = db.collection<TDocSchema & IDefaultKeys>(collectionName);
   }
 
+  // protected
+  protected async findOne(payload: Partial<TDocSchema>) {
+    const document = await this.collection.findOne(payload);
+    if (!document) return null;
+    const { _id: id, ...rest } = document;
+    return { id: id.toString(), ...rest };
+  }
+
+  protected async findAll(payload: Partial<TDocSchema>) {
+    const documents = await this.collection.find(payload).toArray();
+    return documents.map(({ _id: id, ...rest }) => ({ id: id.toString(), ...rest }));
+  }
+
+  // public
   public async create(document: OptionalUnlessRequiredId<TDocSchema>) {
     const currentDate = new Date();
     const newDoc = {
@@ -28,12 +41,7 @@ abstract class BaseModel<TDocSchema extends IDefaultKeys> {
 
   public async find() {
     const documents = await this.collection.find().toArray();
-    return documents.map(({ _id: id, ...rest }) => ({ id, ...rest }));
-  }
-
-  public async findAll(payload: Partial<TDocSchema>) {
-    const documents = await this.collection.find(payload).toArray();
-    return documents.map(({ _id: id, ...rest }) => ({ id, ...rest }));
+    return documents.map(({ _id: id, ...rest }) => ({ id: id.toString(), ...rest }));
   }
 
   public async findById(id: string) {
@@ -44,13 +52,6 @@ abstract class BaseModel<TDocSchema extends IDefaultKeys> {
     if (!document) return null;
     const { _id: ID, ...rest } = document;
     return { id, ...rest };
-  }
-
-  public async findOne(payload: Partial<TDocSchema>) {
-    const document = await this.collection.findOne(payload);
-    if (!document) return null;
-    const { _id: id, ...rest } = document;
-    return { id: id.toString(), ...rest };
   }
 
   public async update(id: string, payload: Partial<TDocSchema>) {
@@ -75,7 +76,8 @@ abstract class BaseModel<TDocSchema extends IDefaultKeys> {
     await this.collection.deleteOne(
       { _id: new ObjectId(id) } as unknown as Filter<TDocSchema>,
     );
-    return document;
+    const { _id: ID, ...rest } = document;
+    return { id: id.toString(), ...rest };
   }
 }
 

@@ -1,0 +1,7 @@
+apps:
+  - name: todo-api
+    script: ./dist/api/server.js
+    exec_mode: cluster
+    instances: 4
+    max_memory_restart: 200M
+    exp_backoff_restart_delay: 100

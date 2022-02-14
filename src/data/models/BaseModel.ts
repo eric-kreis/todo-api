@@ -5,9 +5,10 @@ import {
   ObjectId,
   OptionalUnlessRequiredId,
 } from 'mongodb';
-import IDefaultKeys from '../../domains/IDefaultKeys';
+import IModel from '../../domains/model/IModel';
+import IDefaultKeys from '../../domains/model/IDefaultKeys';
 
-abstract class BaseModel<TDocSchema extends IDefaultKeys> {
+abstract class BaseModel<TDocSchema extends IDefaultKeys> implements IModel<TDocSchema> {
   private readonly collection: Collection<TDocSchema & IDefaultKeys>;
 
   constructor(db: Db, collectionName: string) {

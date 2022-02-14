@@ -1,5 +1,5 @@
 import { Db } from 'mongodb';
-import { IUserModel, IUserSchema } from '../../domains/User';
+import { IUserModel, IUserSchema } from '../../domains/model/User';
 import BaseModel from './BaseModel';
 
 type CryptoFunc = (payload: string) => string;
@@ -13,6 +13,10 @@ class UserModel extends BaseModel<IUserSchema> implements IUserModel {
     super(db, 'users');
     this.encrypt = encrypt;
     this.decrypt = decrypt;
+  }
+
+  public async findByEmail(email: string) {
+    return super.findOne({ email });
   }
 
   public async findByCredentials(email: string, password: string) {

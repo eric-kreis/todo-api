@@ -1,8 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 
 import { Db } from 'mongodb';
-import { ITaskSchema } from '../../../domains/Task';
-import { IUserSchema } from '../../../domains/User';
+import { ITaskSchema } from '../../../domains/model/Task';
+import { IUserSchema } from '../../../domains/model/User';
 import SeedBase from '../SeedBase';
 import * as tasksData from './tasks.json';
 

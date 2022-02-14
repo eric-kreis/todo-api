@@ -1,11 +1,14 @@
+import IModel from '../IModel';
 import IUserSchema from './IUserSchema';
 
 type UserWithId = IUserSchema & { id: string };
 
-interface IUserModel {
-  create(task: IUserSchema): Promise<UserWithId>;
+interface IUserModel extends IModel<IUserSchema> {
+  create(user: IUserSchema): Promise<UserWithId>;
 
   find(): Promise<UserWithId[]>;
+
+  findByEmail(email: string): Promise<UserWithId | null>;
 
   findByCredentials(email: string, password: string): Promise<UserWithId | null>;
 

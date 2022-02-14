@@ -1,0 +1,24 @@
+{
+  "docs": [
+    {
+      "text": "todo api",
+      "status": "doing"
+    },
+    {
+      "text": "todo front",
+      "status": "todo"
+    },
+    {
+      "text": "models",
+      "status": "done"
+    },
+    {
+      "text": "services",
+      "status": "todo"
+    },
+    {
+      "text": "controllers",
+      "status": "todo"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "docs": [
+    {
+      "name": "eric",
+      "email": "eric@betrybe.com",
+      "password": "audnawiudnawidnawid",
+      "role": "common"
+    },
+    {
+      "name": "sofia",
+      "email": "sofia@betrybe.com",
+      "password": "3892173891273122312",
+      "role": "common"
+    },
+    {
+      "name": "nicole",
+      "email": "nicole@betrybe.com",
+      "password": "jwadiowajidawjodjaw",
+      "role": "common"
+    },
+    {
+      "name": "leo",
+      "email": "leo@betrybe.com",
+      "password": "plwdaplawpdawpdlawp",
+      "role": "common"
+    },
+    {
+      "name": "mike",
+      "email": "mike@betrybe.com",
+      "password": "@!!%#%!%!#%!%!#%#!%",
+      "role": "common"
+    }
+  ]
+}

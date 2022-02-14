@@ -10,7 +10,9 @@
     "build": "tsc --project tsconfig.json",
     "start": "pm2-runtime start ecosystem.config.yml",
     "dev": "ts-node-dev --transpile-only --respawn --ignore-watch node_modules src/api/server.ts",
-    "lint": "eslint . --ext .js,.ts"
+    "lint": "eslint . --ext .js,.ts",
+    "seed": "ts-node src/data/seeds/run/insert.ts",
+    "seed:undo": "ts-node src/data/seeds/run/undo.ts"
   },
   "dependencies": {
     "body-parser": "^1.19.1",

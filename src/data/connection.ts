@@ -1,6 +1,9 @@
 import { Db, MongoClient } from 'mongodb';
+import dotenv from 'dotenv';
 
-const { DATABASE_URL } = process.env;
+dotenv.config();
+
+const { DATABASE_URL = 'mongodb://localhost:27017/todo' } = process.env;
 
 const client = new MongoClient(DATABASE_URL);
 

@@ -1,10 +1,4 @@
-import IDefaultKeys from './IDefaultKeys';
-
-export interface ITaskSchema extends IDefaultKeys {
-  text: string;
-  status: string;
-  userId: string;
-}
+import ITaskSchema from './ITaskSchema';
 
 type TaskWithId = ITaskSchema & { id: string };
 

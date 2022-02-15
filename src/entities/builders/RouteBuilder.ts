@@ -1,4 +1,5 @@
 import { RequestHandler, Router } from 'express';
+import rescue from 'express-rescue';
 
 /*
   === It was based on Tirtha Guha's pattern ===
@@ -39,7 +40,7 @@ class RouteBuilder {
   }
 
   public build() {
-    this.router[this.method](this.path, ...this.middlewares, this.controller);
+    this.router[this.method](this.path, ...this.middlewares, rescue(this.controller));
   }
 }
 

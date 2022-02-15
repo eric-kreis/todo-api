@@ -1188,6 +1188,11 @@ eventemitter2@~0.4.14:
   resolved "https://registry.yarnpkg.com/eventemitter2/-/eventemitter2-0.4.14.tgz#8f61b75cde012b2e9eb284d4545583b5643b61ab"
   integrity sha1-j2G3XN4BKy6esoTUVFWDtWQ7Yas=
 
+express-rescue@^1.1.31:
+  version "1.1.31"
+  resolved "https://registry.yarnpkg.com/express-rescue/-/express-rescue-1.1.31.tgz#ba79c4a1966e3667d72e49ced33f558b99d11150"
+  integrity sha512-nX/xfFoB0yjpNqEjI/4y8bafg/agtYFHetGb6/jENv4JEmPDR87d2AjlNsECxRKXsrPjXLQA6YXWluZ9j0QSOA==
+
 express@^4.17.2:
   version "4.17.2"
   resolved "https://registry.yarnpkg.com/express/-/express-4.17.2.tgz#c18369f265297319beed4e5558753cc8c1364cb3"

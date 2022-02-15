@@ -3,13 +3,11 @@ import { Db } from 'mongodb';
 import UserInitializer from './UserInitializer';
 
 class RootInitializer {
-  private rootRouter: Router;
-
-  private connection: () => Promise<Db>;
-
-  constructor(rootRouter: Router, connection: () => Promise<Db>) {
+  constructor(
+    private readonly rootRouter: Router,
+    private connection: () => Promise<Db>,
+  ) {
     this.rootRouter = rootRouter;
-    this.connection = connection;
   }
 
   public async handle() {

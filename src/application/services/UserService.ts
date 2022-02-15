@@ -6,14 +6,10 @@ import { IUserSchema } from '../../domains/data/schemas/user';
 import RequestErrorBuilder from '../../entities/builders/RequestErrorBuilder';
 
 class UserService implements IUserService {
-  private readonly repository: IUserRepository;
-
-  private readonly validator: IUserValidator;
-
-  constructor(repository: IUserRepository, validator: IUserValidator) {
-    this.repository = repository;
-    this.validator = validator;
-
+  constructor(
+    private readonly repository: IUserRepository,
+    private readonly validator: IUserValidator,
+  ) {
     this.signin = this.signin.bind(this);
     this.create = this.create.bind(this);
     this.find = this.find.bind(this);

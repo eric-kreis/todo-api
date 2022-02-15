@@ -5,14 +5,10 @@ import { IUserSchema } from '../../domains/data/schemas/user';
 import { IUserController } from '../../domains/infra';
 
 class UserController implements IUserController {
-  private readonly service: IUserService;
-
-  private readonly tokenService: ITokenService;
-
-  constructor(service: IUserService, tokenService: ITokenService) {
-    this.service = service;
-    this.tokenService = tokenService;
-
+  constructor(
+    private readonly service: IUserService,
+    private readonly tokenService: ITokenService,
+  ) {
     this.signin = this.signin.bind(this);
     this.create = this.create.bind(this);
     this.find = this.find.bind(this);

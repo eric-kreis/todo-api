@@ -5,11 +5,9 @@ import { IUserSchema } from '../../domains/data/schemas/user';
 import Codes from '../../utils/Codes';
 
 class UserRepository implements IUserRepository {
-  private readonly model: IUserModel;
-
   private readonly entity: 'user';
 
-  constructor(model: IUserModel) {
+  constructor(private readonly model: IUserModel) {
     this.model = model;
     this.entity = 'user';
   }

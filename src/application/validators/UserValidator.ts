@@ -22,8 +22,8 @@ class UserValidator implements IUserValidator {
     });
 
     this.signinSchema = Joi.object<IUserSchema>({
-      name: Joi.string().max(10),
-      email: Joi.string().email(),
+      email: Joi.string().email().required(),
+      password: Joi.string().required(),
     });
   }
 

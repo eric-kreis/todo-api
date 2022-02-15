@@ -3,7 +3,7 @@
 import { RequestHandler } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
-const safeRequest: RequestHandler = (req, res, next) => {
+const firewall: RequestHandler = (req, res, next) => {
   const allowedMethods = [
     'OPTIONS',
     'HEAD',
@@ -22,4 +22,4 @@ const safeRequest: RequestHandler = (req, res, next) => {
   next();
 };
 
-export default safeRequest;
+export default firewall;

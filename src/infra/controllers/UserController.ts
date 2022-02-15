@@ -2,8 +2,9 @@ import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { IUserService, ITokenService } from '../../domains/application/service';
 import { IUserSchema } from '../../domains/data/schemas/user';
+import { IUserController } from '../../domains/infra';
 
-class UserController {
+class UserController implements IUserController {
   private readonly service: IUserService;
 
   private readonly tokenService: ITokenService;
@@ -44,7 +45,10 @@ class UserController {
     res.status(StatusCodes.OK).json({ user });
   }
 
-  public async update(req: Request<{ id: string }, {}, Partial<IUserSchema>>, res: Response) {
+  public async update(
+    req: Request<{ [key: string]: string }, {}, Partial<IUserSchema>>,
+    res: Response,
+  ) {
     const { id } = req.params;
     const payload = req.body;
     const updatedUser = await this.service.update(id, payload);

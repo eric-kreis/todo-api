@@ -1,16 +1,16 @@
 import { StatusCodes } from 'http-status-codes';
-import RequestErrorBuilder from '../../entities/builders/RequestErrorBuilder';
-import IUserService from '../../domains/application/service/IUserService';
-import IUserValidation from '../../domains/application/validation/IUserValidation';
-import IUserRepository from '../../domains/entity/respository/IUserRepository';
+import { IUserService } from '../../domains/application/service';
+import { IUserValidator } from '../../domains/application/validation';
+import { IUserRepository } from '../../domains/entity/respository';
 import { IUserSchema } from '../../domains/data/schemas/user';
+import RequestErrorBuilder from '../../entities/builders/RequestErrorBuilder';
 
 class UserService implements IUserService {
   private readonly repository: IUserRepository;
 
-  private readonly validator: IUserValidation;
+  private readonly validator: IUserValidator;
 
-  constructor(repository: IUserRepository, validator: IUserValidation) {
+  constructor(repository: IUserRepository, validator: IUserValidator) {
     this.repository = repository;
     this.validator = validator;
 

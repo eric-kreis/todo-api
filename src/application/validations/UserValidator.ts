@@ -1,8 +1,8 @@
 import Joi, { ObjectSchema } from 'joi';
-import IUserValidation from '../../domains/application/validation/IUserValidation';
+import { IUserValidator } from '../../domains/application/validation';
 import { IUserSchema } from '../../domains/data/schemas/user';
 
-class UserValidation implements IUserValidation {
+class UserValidator implements IUserValidator {
   private createSchema: ObjectSchema<IUserSchema>;
 
   private updateSchema: ObjectSchema<IUserSchema>;
@@ -40,4 +40,4 @@ class UserValidation implements IUserValidation {
   }
 }
 
-export default UserValidation;
+export default UserValidator;

@@ -37,7 +37,8 @@ abstract class BaseModel<TDocSchema extends IDefaultKeys> implements IModel<TDoc
       updatedAt: currentDate,
     };
     const { insertedId } = await this.collection.insertOne(newDoc);
-    return { id: insertedId.toString(), ...newDoc };
+    const { _id: ID, ...rest } = newDoc;
+    return { id: insertedId.toString(), ...rest };
   }
 
   public async find() {

@@ -4,7 +4,7 @@ type SchemaWithId<TDocSchema> = { id: string } & TDocSchema;
 
 interface IModel<TDocSchema> {
   create(doc: OptionalUnlessRequiredId<TDocSchema>): Promise<
-  SchemaWithId<OptionalUnlessRequiredId<TDocSchema>>>;
+  SchemaWithId<Omit<OptionalUnlessRequiredId<TDocSchema>, '_id'>>>;
 
   find(): Promise<
   SchemaWithId<Omit<WithId<TDocSchema>, '_id'>>[]>;

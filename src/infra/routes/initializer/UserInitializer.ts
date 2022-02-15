@@ -3,7 +3,7 @@ import { Db } from 'mongodb';
 import { UserRouter } from '../routers';
 import { UserModel } from '../../../data/models';
 import { UserRepository } from '../../../entities/repositories';
-import { UserValidator } from '../../../application/validations';
+import { UserValidator } from '../../../application/validators';
 import { TokenService, UserService } from '../../../application/services';
 import { UserController } from '../../controllers';
 import decrypt from '../../../helpers/decrypt';

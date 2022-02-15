@@ -1,6 +1,6 @@
 import { StatusCodes } from 'http-status-codes';
 import { IUserService } from '../../domains/application/service';
-import { IUserValidator } from '../../domains/application/validation';
+import { IUserValidator } from '../../domains/application/validators';
 import { IUserRepository } from '../../domains/entity/respository';
 import { IUserSchema } from '../../domains/data/schemas/user';
 import RequestErrorBuilder from '../../entities/builders/RequestErrorBuilder';

@@ -1,5 +1,5 @@
 import Joi, { ObjectSchema } from 'joi';
-import { IUserValidator } from '../../domains/application/validation';
+import { IUserValidator } from '../../domains/application/validators';
 import { IUserSchema } from '../../domains/data/schemas/user';
 
 class UserValidator implements IUserValidator {

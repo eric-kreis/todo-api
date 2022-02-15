@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const { CRYPTO_SECRET } = process.env;
+const { CRYPTO_SECRET = 'superSecret' } = process.env;
 
 const decrypt = (encrypted: string): string => {
   const bytes = CryptoJS.AES.decrypt(encrypted, CRYPTO_SECRET);

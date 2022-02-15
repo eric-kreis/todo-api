@@ -3,32 +3,42 @@
     {
       "name": "eric",
       "email": "eric@betrybe.com",
-      "password": "audnawiudnawidnawid",
-      "role": "common"
+      "password": "123456",
+      "role": "common",
+      "createdAt": "2022-02-15T23:35:45.767Z",
+      "updatedAt": "2022-02-15T23:35:45.767Z"
     },
     {
       "name": "sofia",
       "email": "sofia@betrybe.com",
-      "password": "3892173891273122312",
-      "role": "common"
+      "password": "soso123",
+      "role": "common",
+      "createdAt": "2022-02-15T23:35:45.767Z",
+      "updatedAt": "2022-02-15T23:35:45.767Z"
     },
     {
       "name": "nicole",
       "email": "nicole@betrybe.com",
-      "password": "jwadiowajidawjodjaw",
-      "role": "common"
+      "password": "nick123",
+      "role": "common",
+      "createdAt": "2022-02-15T23:35:45.767Z",
+      "updatedAt": "2022-02-15T23:35:45.767Z"
     },
     {
       "name": "leo",
       "email": "leo@betrybe.com",
-      "password": "plwdaplawpdawpdlawp",
-      "role": "common"
+      "password": "leo123",
+      "role": "common",
+      "createdAt": "2022-02-15T23:35:45.767Z",
+      "updatedAt": "2022-02-15T23:35:45.767Z"
     },
     {
       "name": "mike",
       "email": "mike@betrybe.com",
-      "password": "@!!%#%!%!#%!%!#%#!%",
-      "role": "common"
+      "password": "mike123",
+      "role": "common",
+      "createdAt": "2022-02-15T23:35:45.767Z",
+      "updatedAt": "2022-02-15T23:35:45.767Z"
     }
   ]
 }

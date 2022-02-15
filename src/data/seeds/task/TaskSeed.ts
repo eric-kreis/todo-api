@@ -6,12 +6,14 @@ import { IUserSchema } from '../../../domains/data/schemas/user';
 import SeedBase from '../SeedBase';
 import * as tasksData from './tasks.json';
 
+const tasks = tasksData.docs;
+
 class TaskSeed extends SeedBase<ITaskSchema> {
   private tasks: Pick<ITaskSchema, 'text' | 'status'>[];
 
   constructor(db: Db) {
     super(db, 'tasks');
-    this.tasks = tasksData.docs;
+    this.tasks = tasks;
   }
 
   async execute() {

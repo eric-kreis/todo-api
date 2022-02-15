@@ -1,4 +1,4 @@
-import IDefaultKeys from '../IDefaultKeys';
+import IDefaultKeys from '../../IDefaultKeys';
 
 interface IUserSchema extends IDefaultKeys {
   name: string;

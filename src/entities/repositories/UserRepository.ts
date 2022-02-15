@@ -1,8 +1,10 @@
 import DataErrorStruct from '../../data/structs/DataErrorStruct';
-import { IUserModel, IUserSchema } from '../../domains/model/User';
+import IUserRepository from '../../domains/entity/respository/IUserRepository';
+import { IUserModel } from '../../domains/data/model';
+import { IUserSchema } from '../../domains/data/schemas/user';
 import Codes from '../../utils/Codes';
 
-class UserRepository {
+class UserRepository implements IUserRepository {
   private readonly model: IUserModel;
 
   private readonly entity: 'user';
@@ -40,7 +42,7 @@ class UserRepository {
   }
 
   public async update(id: string, payload: Partial<IUserSchema>) {
-    if (payload?.email) {
+    if (payload.email) {
       const alreadyExists = await this.model.findByEmail(payload.email);
       if (alreadyExists) {
         throw new DataErrorStruct(

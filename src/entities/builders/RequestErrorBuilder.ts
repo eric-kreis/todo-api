@@ -1,27 +1,12 @@
-import { IRequestErrorBuilder } from '../../domains/entity/builder/Error';
+class RequestErrorBuilder extends Error {
+  public status: number;
 
-class RequestErrorBuilder implements IRequestErrorBuilder {
-  public status: null | number;
+  public message: string;
 
-  public message: null | string;
-
-  constructor() {
-    this.status = null;
-    this.message = null;
-  }
-
-  public setStatus(status: number) {
+  constructor(status: number, message: string) {
+    super();
     this.status = status;
-    return this;
-  }
-
-  public setMessage(message: string) {
     this.message = message;
-    return this;
-  }
-
-  public build() {
-    return this;
   }
 }
 

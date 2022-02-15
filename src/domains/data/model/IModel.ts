@@ -1,5 +1,4 @@
 import { EnhancedOmit, OptionalUnlessRequiredId, WithId } from 'mongodb';
-// import IDefaultKeys from './IDefaultKeys';
 
 type SchemaWithId<TDocSchema> = { id: string } & TDocSchema;
 

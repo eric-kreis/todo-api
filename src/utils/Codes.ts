@@ -1,7 +1,7 @@
 enum Codes {
-  CONFLICT = 'conflict',
-  NOT_FOUND = 'notFound',
-  BAD_REQUEST = 'badRequest',
+  CONFLICT = 'CONFLICT',
+  NOT_FOUND = 'NOT_FOUND',
+  BAD_REQUEST = 'BAD_REQUEST',
 }
 
 export default Codes;

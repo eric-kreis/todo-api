@@ -21,7 +21,9 @@ class UserModel extends BaseModel<IUserSchema> implements IUserModel {
   }
 
   public async findByCredentials(email: string, password: string) {
-    return super.findOne({ email, password: this.decrypt(password) });
+    const user = await super.findOne({ email });
+    if (user && this.decrypt(user.password) === password) return user;
+    return null;
   }
 
   public async create(user: Pick<IUserSchema, 'email' | 'name' | 'password'>) {

@@ -58,15 +58,24 @@ abstract class BaseModel<TDocSchema extends IDefaultKeys> implements IModel<TDoc
 
   public async update(id: string, payload: Partial<TDocSchema>) {
     if (!ObjectId.isValid(id)) return null;
-    const document = await this.collection.findOne(
+    const oldDocument = await this.collection.findOne(
       { _id: new ObjectId(id) } as unknown as Filter<TDocSchema>,
     );
-    if (!document) return null;
+    if (!oldDocument) return null;
+    const currentDate = new Date();
     await this.collection.updateOne(
       { _id: new ObjectId(id) } as unknown as Filter<TDocSchema>,
-      payload,
+      {
+        $set: {
+          ...payload,
+          createdAt: oldDocument.createdAt,
+          updatedAt: currentDate,
+        },
+      },
     );
-    return { id, ...document, ...payload };
+
+    const { _id: ID, ...rest } = oldDocument;
+    return { id, ...rest, ...payload };
   }
 
   public async delete(id: string) {

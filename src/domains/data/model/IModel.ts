@@ -1,4 +1,4 @@
-import { EnhancedOmit, OptionalUnlessRequiredId, WithId } from 'mongodb';
+import { OptionalUnlessRequiredId, WithId } from 'mongodb';
 
 type SchemaWithId<TDocSchema> = { id: string } & TDocSchema;
 
@@ -13,7 +13,7 @@ interface IModel<TDocSchema> {
   SchemaWithId<Omit<WithId<TDocSchema>, '_id'>> | null>;
 
   update(id: string, payload: Partial<TDocSchema>): Promise<
-  EnhancedOmit<TDocSchema, '_id'> | null>;
+  SchemaWithId<Omit<WithId<TDocSchema>, '_id'>> | null>;
 
   delete(id: string): Promise<
   SchemaWithId<Omit<WithId<TDocSchema>, '_id'>> | null>;

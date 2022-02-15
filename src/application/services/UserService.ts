@@ -14,11 +14,19 @@ class UserService implements IUserService {
     this.repository = repository;
     this.validator = validator;
 
+    this.signin = this.signin.bind(this);
     this.create = this.create.bind(this);
     this.find = this.find.bind(this);
-    this.signin = this.signin.bind(this);
     this.update = this.update.bind(this);
     this.delete = this.delete.bind(this);
+  }
+
+  async signin(email: string, password: string) {
+    const validation = this.validator.signin({ email, password });
+    if (validation.error) {
+      throw new RequestErrorBuilder(StatusCodes.BAD_REQUEST, validation.error.message);
+    }
+    return this.repository.findByCredentials(email, password);
   }
 
   async create(user: IUserSchema) {
@@ -35,14 +43,6 @@ class UserService implements IUserService {
 
   async findById(id: string) {
     return this.repository.findById(id);
-  }
-
-  async signin(email: string, password: string) {
-    const validation = this.validator.signin({ email, password });
-    if (validation.error) {
-      throw new RequestErrorBuilder(StatusCodes.BAD_REQUEST, validation.error.message);
-    }
-    return this.repository.findByCredentials(email, password);
   }
 
   async update(id: string, payload: Partial<IUserSchema>) {

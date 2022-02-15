@@ -3,13 +3,13 @@ import express, { Router } from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import connection from '../data/connection';
-import firewall from '../infra/middlewares/firewall';
+import { error, firewall } from '../infra/middlewares';
 import RootInitializer from '../infra/routes/initializer';
 
 const app = express();
 const rootRouter = Router({ mergeParams: true });
 
-// middlewares
+// middlewares;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,5 +22,8 @@ rootInitializer.handle();
 
 // router;
 app.use(rootRouter);
+
+// error middleware;
+app.use(error);
 
 export default app;

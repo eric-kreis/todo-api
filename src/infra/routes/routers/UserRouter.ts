@@ -14,11 +14,24 @@ class UserRouter extends BaseRouter {
     this.router = this.handle();
   }
 
+  private handle() {
+    const routes = [
+      this.signinUser(),
+      this.postUser(),
+      this.getUsers(),
+      this.getUserById(),
+      this.putUser(),
+      this.deleteUser(),
+    ];
+    routes.forEach((route) => route.build());
+    return this.router;
+  }
+
   private signinUser() {
     return new RouteBuilder({
       router: this.router,
       path: '/signin',
-      method: 'get',
+      method: 'post',
       controller: this.controller.signin,
     });
   }
@@ -66,19 +79,6 @@ class UserRouter extends BaseRouter {
       method: 'delete',
       controller: this.controller.delete,
     });
-  }
-
-  private handle() {
-    const routes = [
-      this.signinUser(),
-      this.postUser(),
-      this.getUsers(),
-      this.getUserById(),
-      this.putUser(),
-      this.deleteUser(),
-    ];
-    routes.forEach((route) => route.build());
-    return this.router;
   }
 }
 

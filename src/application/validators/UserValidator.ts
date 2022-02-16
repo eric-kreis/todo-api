@@ -11,13 +11,13 @@ class UserValidator implements IUserValidator {
 
   constructor() {
     this.createSchema = Joi.object<IUserSchema>({
-      name: Joi.string().max(10).required(),
+      name: Joi.string().max(20).required(),
       email: Joi.string().email().required(),
       password: Joi.string().min(6).required(),
     });
 
     this.updateSchema = Joi.object<IUserSchema>({
-      name: Joi.string().max(10),
+      name: Joi.string().max(20),
       email: Joi.string().email(),
     });
 

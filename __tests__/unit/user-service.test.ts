@@ -45,7 +45,7 @@ describe('UserService.create', () => {
     expect(error.status).toBe(400);
   });
 
-  it('should return repository return if validator dont contains "error"', async () => {
+  it('should return repository return if validator doesn\'t contain "error"', async () => {
     const { sut, userValidatorMock, userRepositoryMock } = sutFactory();
     const repositoryResponse = bodys.user;
     userValidatorMock.create.mockReturnValueOnce({} as ValidationResult);
@@ -57,6 +57,45 @@ describe('UserService.create', () => {
 
     try {
       response = await sut.create({} as IUserSchema);
+    } catch (e) {
+      response = e;
+    }
+
+    expect(response).toBe(repositoryResponse);
+  });
+});
+
+describe('UserService.update', () => {
+  it('should throw an error with correct "message" and "status" if validator contains "error"', async () => {
+    const { sut, userValidatorMock } = sutFactory();
+    const errorMessage = 'validator message';
+    userValidatorMock.update.mockReturnValueOnce(joiErrorFactory(errorMessage));
+
+    let error: any;
+
+    try {
+      await sut.update('id', {} as IUserSchema);
+    } catch (e) {
+      error = e;
+    }
+
+    expect(error).toBeInstanceOf(RequestErrorBuilder);
+    expect(error.message).toBe(errorMessage);
+    expect(error.status).toBe(400);
+  });
+
+  it('should return repository return if validator doesn\'t contain "error"', async () => {
+    const { sut, userValidatorMock, userRepositoryMock } = sutFactory();
+    const repositoryResponse = bodys.user;
+    userValidatorMock.update.mockReturnValueOnce({} as ValidationResult);
+    userRepositoryMock.update.mockResolvedValueOnce(
+      Promise.resolve(repositoryResponse as unknown as IUserWithId),
+    );
+
+    let response: any;
+
+    try {
+      response = await sut.update('id', {} as Partial<IUserSchema>);
     } catch (e) {
       response = e;
     }

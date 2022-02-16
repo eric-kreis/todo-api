@@ -17,7 +17,7 @@ class UserRepository implements IUserRepository {
     if (alreadyExists) {
       throw new DataErrorStruct(
         Codes.CONFLICT,
-        `${this.entity} alredy registred`,
+        `${this.entity} already registred`,
       );
     }
     return this.model.create(user);
@@ -45,7 +45,7 @@ class UserRepository implements IUserRepository {
       if (alreadyExists) {
         throw new DataErrorStruct(
           Codes.CONFLICT,
-          `${this.entity} alredy registred`,
+          `${this.entity} already registred`,
         );
       }
     }

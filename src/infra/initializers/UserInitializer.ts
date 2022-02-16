@@ -4,7 +4,7 @@ import { UserRouter } from '../routers';
 import { UserModel } from '../../data/models';
 import { UserRepository } from '../../entities/repositories';
 import { UserValidator } from '../../application/validators';
-import schemas from '../../application/JoiSchemas/user';
+import schemas from '../../application/joiSchemas/user';
 import { TokenService, UserService } from '../../application/services';
 import { UserController } from '../controllers';
 import decrypt from '../../helpers/decrypt';

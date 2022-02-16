@@ -182,3 +182,23 @@ describe('UserService.update', () => {
     expect(response).toBe(repositoryResponse);
   });
 });
+
+describe('UserService.delete', () => {
+  it('should return repository return', async () => {
+    const { sut, userRepositoryMock } = sutFactory();
+    const repositoryResponse = bodys.user;
+    userRepositoryMock.delete.mockResolvedValueOnce(
+      Promise.resolve(repositoryResponse as unknown as IUserWithId),
+    );
+
+    let response: any;
+
+    try {
+      response = await sut.delete('id');
+    } catch (e) {
+      response = e;
+    }
+
+    expect(response).toBe(repositoryResponse);
+  });
+});

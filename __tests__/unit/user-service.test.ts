@@ -1,7 +1,7 @@
 import { ValidationResult } from 'joi';
 import { UserService } from '../../src/application/services';
 import { UserValidator } from '../../src/application/validators';
-import { IUserSchema, IUserWithId } from '../../src/domains/data/schemas/user';
+import { IUserSchema } from '../../src/domains/data/schemas/user';
 import RequestErrorBuilder from '../../src/entities/builders/RequestErrorBuilder';
 import { UserRepository } from '../../src/entities/repositories';
 import joiErrorFactory from '../joiErrorFactory';
@@ -47,10 +47,10 @@ describe('UserService.signin', () => {
 
   it('should return repository return if validator doesn\'t contain "error"', async () => {
     const { sut, userValidatorMock, userRepositoryMock } = sutFactory();
-    const repositoryResponse = bodys.user;
+    const repositoryResponse = bodys.user.response;
     userValidatorMock.signin.mockReturnValueOnce({} as ValidationResult);
     userRepositoryMock.findByCredentials.mockResolvedValueOnce(
-      Promise.resolve(repositoryResponse as unknown as IUserWithId),
+      Promise.resolve(repositoryResponse),
     );
 
     let response: any;
@@ -86,10 +86,10 @@ describe('UserService.create', () => {
 
   it('should return repository return if validator doesn\'t contain "error"', async () => {
     const { sut, userValidatorMock, userRepositoryMock } = sutFactory();
-    const repositoryResponse = bodys.user;
+    const repositoryResponse = bodys.user.response;
     userValidatorMock.create.mockReturnValueOnce({} as ValidationResult);
     userRepositoryMock.create.mockResolvedValueOnce(
-      Promise.resolve(repositoryResponse as unknown as IUserWithId),
+      Promise.resolve(repositoryResponse),
     );
 
     let response: any;
@@ -107,9 +107,9 @@ describe('UserService.create', () => {
 describe('UserService.find', () => {
   it('should return repository return', async () => {
     const { sut, userRepositoryMock } = sutFactory();
-    const repositoryResponse = [bodys.user];
+    const repositoryResponse = [bodys.user.response];
     userRepositoryMock.find.mockResolvedValueOnce(
-      Promise.resolve(repositoryResponse as unknown as IUserWithId[]),
+      Promise.resolve(repositoryResponse),
     );
 
     let response: any;
@@ -127,9 +127,9 @@ describe('UserService.find', () => {
 describe('UserService.findById', () => {
   it('should return repository return', async () => {
     const { sut, userRepositoryMock } = sutFactory();
-    const repositoryResponse = bodys.user;
+    const repositoryResponse = bodys.user.response;
     userRepositoryMock.findById.mockResolvedValueOnce(
-      Promise.resolve(repositoryResponse as unknown as IUserWithId),
+      Promise.resolve(repositoryResponse),
     );
 
     let response: any;
@@ -165,10 +165,10 @@ describe('UserService.update', () => {
 
   it('should return repository return if validator doesn\'t contain "error"', async () => {
     const { sut, userValidatorMock, userRepositoryMock } = sutFactory();
-    const repositoryResponse = bodys.user;
+    const repositoryResponse = bodys.user.response;
     userValidatorMock.update.mockReturnValueOnce({} as ValidationResult);
     userRepositoryMock.update.mockResolvedValueOnce(
-      Promise.resolve(repositoryResponse as unknown as IUserWithId),
+      Promise.resolve(repositoryResponse),
     );
 
     let response: any;
@@ -186,9 +186,9 @@ describe('UserService.update', () => {
 describe('UserService.delete', () => {
   it('should return repository return', async () => {
     const { sut, userRepositoryMock } = sutFactory();
-    const repositoryResponse = bodys.user;
+    const repositoryResponse = bodys.user.response;
     userRepositoryMock.delete.mockResolvedValueOnce(
-      Promise.resolve(repositoryResponse as unknown as IUserWithId),
+      Promise.resolve(repositoryResponse),
     );
 
     let response: any;

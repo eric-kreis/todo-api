@@ -3,7 +3,7 @@ import { sign, verify, SignOptions } from 'jsonwebtoken';
 import ITokenService from '../../domains/application/service/ITokenService';
 import RequestErrorBuilder from '../../entities/builders/RequestErrorBuilder';
 
-const { JWT_SECRET } = process.env;
+const { JWT_SECRET = 'superSecret2' } = process.env;
 
 class TokenService implements ITokenService {
   private sign: typeof sign;

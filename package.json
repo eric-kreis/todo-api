@@ -13,7 +13,8 @@
     "lint": "eslint . --ext .js,.ts",
     "seed": "ts-node src/data/seeds/run/insert.ts",
     "seed:undo": "ts-node src/data/seeds/run/undo.ts",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --collect-coverage"
   },
   "dependencies": {
     "body-parser": "^1.19.1",

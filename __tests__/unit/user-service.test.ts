@@ -104,6 +104,26 @@ describe('UserService.create', () => {
   });
 });
 
+describe('UserService.find', () => {
+  it('should return repository return', async () => {
+    const { sut, userRepositoryMock } = sutFactory();
+    const repositoryResponse = [bodys.user];
+    userRepositoryMock.find.mockResolvedValueOnce(
+      Promise.resolve(repositoryResponse as unknown as IUserWithId[]),
+    );
+
+    let response: any;
+
+    try {
+      response = await sut.find();
+    } catch (e) {
+      response = e;
+    }
+
+    expect(response).toBe(repositoryResponse);
+  });
+});
+
 describe('UserService.update', () => {
   it('should throw an error with correct "message" and "status" if validator contains "error"', async () => {
     const { sut, userValidatorMock } = sutFactory();

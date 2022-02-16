@@ -4,9 +4,9 @@ import { IUserSchema } from '../../domains/data/schemas/user';
 
 class UserValidator implements IUserValidator {
   constructor(
-    private createSchema: ObjectSchema<Omit<IUserSchema, 'role'>>,
-    private updateSchema: ObjectSchema<Partial<IUserSchema>>,
-    private signinSchema: ObjectSchema<Pick<IUserSchema, 'email' | 'password'>>,
+    public createSchema: ObjectSchema<Omit<IUserSchema, 'role'>>,
+    public updateSchema: ObjectSchema<Partial<IUserSchema>>,
+    public signinSchema: ObjectSchema<Pick<IUserSchema, 'email' | 'password'>>,
   ) {}
 
   public create(user: Omit<IUserSchema, 'role'>) {

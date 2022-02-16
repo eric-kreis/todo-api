@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { IUserController } from '../../../domains/infra';
-import { RouteBuilder } from '../../../entities/builders';
+import { IUserController } from '../../domains/infra';
+import { RouteBuilder } from '../../entities/builders';
 import BaseRouter from './BaseRouter';
 
 class UserRouter extends BaseRouter {

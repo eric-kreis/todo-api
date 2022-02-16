@@ -4,7 +4,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import connection from '../data/connection';
 import { error, firewall } from '../infra/middlewares';
-import RootInitializer from '../infra/routes/initializer';
+import RootInitializer from '../infra/initializers';
 
 const app = express();
 const rootRouter = Router({ mergeParams: true });

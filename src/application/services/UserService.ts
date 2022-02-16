@@ -25,7 +25,7 @@ class UserService implements IUserService {
     return this.repository.findByCredentials(email, password);
   }
 
-  async create(user: IUserSchema) {
+  async create(user: Omit<IUserSchema, 'role'>) {
     const validation = this.validator.create(user);
     if (validation.error) {
       throw new RequestErrorBuilder(StatusCodes.BAD_REQUEST, validation.error.message);

@@ -1,33 +1,15 @@
-import Joi, { ObjectSchema } from 'joi';
+import { ObjectSchema } from 'joi';
 import { IUserValidator } from '../../domains/application/validators';
 import { IUserSchema } from '../../domains/data/schemas/user';
 
 class UserValidator implements IUserValidator {
-  private createSchema: ObjectSchema<IUserSchema>;
+  constructor(
+    private createSchema: ObjectSchema<Omit<IUserSchema, 'role'>>,
+    private updateSchema: ObjectSchema<Partial<IUserSchema>>,
+    private signinSchema: ObjectSchema<Pick<IUserSchema, 'email' | 'password'>>,
+  ) {}
 
-  private updateSchema: ObjectSchema<IUserSchema>;
-
-  private signinSchema: ObjectSchema<IUserSchema>;
-
-  constructor() {
-    this.createSchema = Joi.object<IUserSchema>({
-      name: Joi.string().max(20).required(),
-      email: Joi.string().email().required(),
-      password: Joi.string().min(6).required(),
-    });
-
-    this.updateSchema = Joi.object<IUserSchema>({
-      name: Joi.string().max(20),
-      email: Joi.string().email(),
-    });
-
-    this.signinSchema = Joi.object<IUserSchema>({
-      email: Joi.string().email().required(),
-      password: Joi.string().required(),
-    });
-  }
-
-  public create(user: IUserSchema) {
+  public create(user: Omit<IUserSchema, 'role'>) {
     return this.createSchema.validate(user);
   }
 

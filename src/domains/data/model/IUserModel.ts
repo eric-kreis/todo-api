@@ -2,7 +2,7 @@ import IModel from './IModel';
 import { IUserWithId, IUserSchema } from '../schemas/user';
 
 interface IUserModel extends IModel<IUserSchema> {
-  create(user: IUserSchema): Promise<IUserWithId>;
+  create(user: Omit<IUserSchema, 'role'>): Promise<IUserWithId>;
 
   find(): Promise<IUserWithId[]>;
 

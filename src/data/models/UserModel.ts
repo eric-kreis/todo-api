@@ -26,7 +26,7 @@ class UserModel extends BaseModel<IUserSchema> implements IUserModel {
     return null;
   }
 
-  public async create(user: Pick<IUserSchema, 'email' | 'name' | 'password'>) {
+  public async create(user: Omit<IUserSchema, 'role'>) {
     const password = this.encrypt(user.password);
     const role = 'common';
     return super.create({ ...user, password, role });

@@ -24,7 +24,7 @@ class UserController implements IUserController {
     res.status(StatusCodes.OK).json({ token });
   }
 
-  public async create(req: Request<{}, {}, IUserSchema>, res: Response) {
+  public async create(req: Request<{}, {}, Omit<IUserSchema, 'role'>>, res: Response) {
     const user = req.body;
     const createdUser = await this.service.create(user);
     res.status(StatusCodes.CREATED).json({ user: createdUser });

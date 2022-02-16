@@ -1,7 +1,7 @@
 import { IUserSchema, IUserWithId } from '../../data/schemas/user';
 
 interface IUserRepository {
-  create(user: IUserSchema): Promise<IUserWithId>;
+  create(user: Omit<IUserSchema, 'role'>): Promise<IUserWithId>;
   find(): Promise<IUserWithId[]>;
   findById(id: string): Promise<IUserWithId>;
   findByCredentials(email: string, password: string): Promise<IUserWithId>;

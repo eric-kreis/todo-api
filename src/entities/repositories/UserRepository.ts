@@ -12,7 +12,7 @@ class UserRepository implements IUserRepository {
     this.entity = 'user';
   }
 
-  public async create(user: IUserSchema) {
+  public async create(user: Omit<IUserSchema, 'role'>) {
     const alreadyExists = await this.model.findByEmail(user.email);
     if (alreadyExists) {
       throw new DataErrorStruct(

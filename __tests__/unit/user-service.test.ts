@@ -26,6 +26,45 @@ const sutFactory = () => {
   };
 };
 
+describe('UserService.signin', () => {
+  it('should throw an error with correct "message" and "status" if validator contains "error"', async () => {
+    const { sut, userValidatorMock } = sutFactory();
+    const errorMessage = 'validator message';
+    userValidatorMock.signin.mockReturnValueOnce(joiErrorFactory(errorMessage));
+
+    let error: any;
+
+    try {
+      await sut.signin('invalidemail.com', 'password');
+    } catch (e) {
+      error = e;
+    }
+
+    expect(error).toBeInstanceOf(RequestErrorBuilder);
+    expect(error.message).toBe(errorMessage);
+    expect(error.status).toBe(400);
+  });
+
+  it('should return repository return if validator doesn\'t contain "error"', async () => {
+    const { sut, userValidatorMock, userRepositoryMock } = sutFactory();
+    const repositoryResponse = bodys.user;
+    userValidatorMock.signin.mockReturnValueOnce({} as ValidationResult);
+    userRepositoryMock.findByCredentials.mockResolvedValueOnce(
+      Promise.resolve(repositoryResponse as unknown as IUserWithId),
+    );
+
+    let response: any;
+
+    try {
+      response = await sut.signin('valid@email.com', 'password');
+    } catch (e) {
+      response = e;
+    }
+
+    expect(response).toBe(repositoryResponse);
+  });
+});
+
 describe('UserService.create', () => {
   it('should throw an error with correct "message" and "status" if validator contains "error"', async () => {
     const { sut, userValidatorMock } = sutFactory();

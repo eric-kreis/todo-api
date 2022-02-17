@@ -1,8 +1,8 @@
 import { Db, MongoClient, ObjectId } from 'mongodb';
-import { UserModel } from '../../src/data/models';
-import bodys from '../mocks/bodys';
-import connection from '../mocks/db';
-import encryptAndDecryptMock from '../mocks/encryptDecrypt';
+import { UserModel } from '../../../src/data/models';
+import bodys from '../../mocks/bodys';
+import connection from '../../mocks/db';
+import encryptAndDecryptMock from '../../mocks/encryptDecrypt';
 
 const dbUser = {
   ...bodys.user.create,

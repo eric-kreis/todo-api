@@ -1,14 +1,14 @@
 import { ValidationResult } from 'joi';
-import { UserService } from '../../src/application/services';
-import { UserValidator } from '../../src/application/validators';
-import { IUserSchema } from '../../src/domains/data/schemas/user';
-import RequestErrorBuilder from '../../src/entities/builders/RequestErrorBuilder';
-import { UserRepository } from '../../src/entities/repositories';
-import joiErrorFactory from '../joiErrorFactory';
-import bodys from '../mocks/bodys';
+import { UserService } from '../../../src/application/services';
+import { UserValidator } from '../../../src/application/validators';
+import { IUserSchema } from '../../../src/domains/data/schemas/user';
+import RequestErrorBuilder from '../../../src/entities/builders/RequestErrorBuilder';
+import { UserRepository } from '../../../src/entities/repositories';
+import joiErrorFactory from '../../joiErrorFactory';
+import bodys from '../../mocks/bodys';
 
-jest.mock('../../src/application/validators');
-jest.mock('../../src/entities/repositories');
+jest.mock('../../../src/application/validators');
+jest.mock('../../../src/entities/repositories');
 
 const UserRepositoryMock = UserRepository as jest.Mock<UserRepository>;
 const UserValidatorMock = UserValidator as jest.Mock<UserValidator>;

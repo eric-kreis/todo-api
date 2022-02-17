@@ -9,8 +9,6 @@ interface ITaskModel {
 
   findById(id: string): Promise<ITaskWithId | null>;
 
-  findOneByUser(userId: string): Promise<ITaskWithId | null>;
-
   update(id: string, payload: Partial<ITaskSchema>): Promise<ITaskWithId | null>;
 
   delete(id: string): Promise<ITaskWithId | null>;

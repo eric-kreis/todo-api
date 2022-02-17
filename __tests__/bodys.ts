@@ -17,4 +17,28 @@ export default {
       password: '123456',
     },
   },
+  task1: {
+    create: {
+      text: 'do deploy',
+      status: 'todo',
+    },
+  },
+  task2: {
+    create: {
+      text: 'create front repository',
+      status: 'todo',
+    },
+  },
+  task3: {
+    create: {
+      text: 'back-end unit tests',
+      status: 'doing',
+    },
+  },
+  task4: {
+    create: {
+      text: 'user unit tests',
+      status: 'done',
+    },
+  },
 };

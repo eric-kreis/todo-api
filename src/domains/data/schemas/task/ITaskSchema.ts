@@ -2,7 +2,7 @@ import IDefaultKeys from '../../IDefaultKeys';
 
 interface ITaskSchema extends IDefaultKeys {
   text: string;
-  status: string;
+  status: 'todo' | 'doing' | 'done';
   userId: string;
 }
 

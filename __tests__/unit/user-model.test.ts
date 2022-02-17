@@ -2,8 +2,7 @@ import { Db, MongoClient, ObjectId } from 'mongodb';
 import { UserModel } from '../../src/data/models';
 import bodys from '../bodys';
 import connection from '../db';
-
-const encryptAndDecryptMock = (payload: string): string => payload.split('').reverse().join('');
+import encryptAndDecryptMock from '../mocks/encryptDecrypt';
 
 const dbUser = {
   ...bodys.user.create,

@@ -9,13 +9,8 @@ class TaskModel extends BaseModel<ITaskSchema> implements ITaskModel {
   }
 
   public async findAllByUser(userId: string) {
+    if (!ObjectId.isValid(userId)) return [];
     return super.findAll({ userId });
-  }
-
-  public async findOneByUser(userId: string) {
-    if (!ObjectId.isValid(userId)) return null;
-    const task = await super.findOne({ userId });
-    return task;
   }
 }
 

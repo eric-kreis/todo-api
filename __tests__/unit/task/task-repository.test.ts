@@ -141,8 +141,48 @@ describe('TaskRepository.update', () => {
     }
 
     expect(taskModelMock.update).toHaveBeenCalledWith('id', { text: 'new Text' });
-    expect(taskModelMock.findById).toHaveBeenCalled();
-    expect(taskModelMock.findById).toHaveBeenCalledTimes(1);
+    expect(taskModelMock.update).toHaveBeenCalled();
+    expect(taskModelMock.update).toHaveBeenCalledTimes(1);
     expect(response).toStrictEqual({ ...bodys.task1.response, text: 'new Text' });
+  });
+});
+
+describe('TaskRepository.delete', () => {
+  it('should throw an error if model.delete returns null', async () => {
+    const { sut, taskModelMock } = sutFactory();
+    taskModelMock.delete.mockResolvedValueOnce(null);
+
+    let error: any;
+
+    try {
+      error = await sut.delete('id');
+    } catch (e) {
+      error = e;
+    }
+
+    expect(taskModelMock.delete).toHaveBeenCalledWith('id');
+    expect(taskModelMock.delete).toHaveBeenCalled();
+    expect(taskModelMock.delete).toHaveBeenCalledTimes(1);
+    expect(error).toBeInstanceOf(DataErrorStruct);
+    expect(error.message).toBe('task not found');
+    expect(error.code).toBe('NOT_FOUND');
+  });
+
+  it('should return the return of model.delete', async () => {
+    const { sut, taskModelMock } = sutFactory();
+    taskModelMock.delete.mockResolvedValueOnce(bodys.task1.response);
+
+    let response: any;
+
+    try {
+      response = await sut.delete('id');
+    } catch (e) {
+      response = e;
+    }
+
+    expect(taskModelMock.delete).toHaveBeenCalledWith('id');
+    expect(taskModelMock.delete).toHaveBeenCalled();
+    expect(taskModelMock.delete).toHaveBeenCalledTimes(1);
+    expect(response).toStrictEqual(bodys.task1.response);
   });
 });

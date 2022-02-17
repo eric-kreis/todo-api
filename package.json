@@ -2,7 +2,7 @@
   "name": "todo-api",
   "version": "1.0.0",
   "description": "The todo-list API",
-  "main": "./src/api/server.js",
+  "main": "dist/api/server.js",
   "repository": "git@github.com:eric-kreis/todo-api.git",
   "author": "Eric Kreis <erickreis793@gmail.com>",
   "license": "MIT",

@@ -1,9 +1,47 @@
-// import faker from '@faker-js/faker';
+import { ObjectId } from 'mongodb';
+import { ITaskWithId } from '../../src/domains/data/schemas/task';
+import { IUserWithId } from '../../src/domains/data/schemas/user';
 
-export default {
+interface IBodys {
+  user: {
+    response: IUserWithId & { createdAt: Date, updatedAt: Date }
+    create: {
+      name: string;
+      email: string;
+      password: string;
+    },
+  },
+  task1: {
+    create: {
+      text: string;
+      status: string;
+    },
+    response: ITaskWithId & { createdAt: Date, updatedAt: Date },
+  },
+  task2: {
+    create: {
+      text: string;
+      status: string;
+    },
+  },
+  task3: {
+    create: {
+      text: string;
+      status: string;
+    },
+  },
+  task4: {
+    create: {
+      text: string;
+      status: string;
+    },
+  },
+}
+
+const bodys: IBodys = {
   user: {
     response: {
-      id: 'id',
+      id: new ObjectId().toString(),
       name: 'Eric',
       email: 'eric@email.com',
       password: '123456',
@@ -21,6 +59,14 @@ export default {
     create: {
       text: 'do deploy',
       status: 'todo',
+    },
+    response: {
+      id: new ObjectId().toString(),
+      text: 'do deploy',
+      status: 'todo',
+      userId: new ObjectId().toString(),
+      createdAt: new Date('2022-02-15T23:35:45.767Z'),
+      updatedAt: new Date('2022-02-15T23:35:45.767Z'),
     },
   },
   task2: {
@@ -42,3 +88,5 @@ export default {
     },
   },
 };
+
+export default bodys;

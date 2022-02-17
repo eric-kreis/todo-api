@@ -19,6 +19,10 @@ class TaskRepository implements ITaskRepository {
     return this.model.find();
   }
 
+  public async findAllByUser(userId: string) {
+    return this.model.findAllByUser(userId);
+  }
+
   public async findById(id: string) {
     const task = await this.model.findById(id);
     if (!task) throw new DataErrorStruct(Codes.NOT_FOUND, `${this.entity} not found`);

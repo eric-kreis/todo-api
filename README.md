@@ -21,7 +21,7 @@ Este projeto é mantido sob o mais absoluto sigilo para a Empresa Ebyrt. Se voc�
 ### TESTES
 - Esta aplicação conta com 95% de cobertura total com testes unitários.
 
-![test_coverage](https://ibb.co/47Sv2cG)
+![test_coverage](https://i.ibb.co/Xb50D9g/Screenshot-from-2022-02-17-15-15-22.png)
 
 ### CONVENÇÕES
 Convenções adotadas no ambiente de trabalho para o projeto Todo API:

@@ -13,7 +13,7 @@ class TaskSeed extends SeedBase<ITaskSchema> {
 
   constructor(db: Db) {
     super(db, 'tasks');
-    this.tasks = tasks;
+    this.tasks = tasks as Pick<ITaskSchema, 'text' | 'status'>[];
   }
 
   async execute() {

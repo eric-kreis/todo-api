@@ -28,6 +28,12 @@ class TaskRepository implements ITaskRepository {
     if (!task) throw new DataErrorStruct(Codes.NOT_FOUND, `${this.entity} not found`);
     return task;
   }
+
+  public async update(id: string, payload: Partial<ITaskSchema>) {
+    const updatedTask = await this.model.update(id, payload);
+    if (!updatedTask) throw new DataErrorStruct(Codes.NOT_FOUND, `${this.entity} not found`);
+    return updatedTask;
+  }
 }
 
 export default TaskRepository;

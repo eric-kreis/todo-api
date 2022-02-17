@@ -10,7 +10,12 @@ class TaskService implements ITaskService {
     private readonly repository: ITaskRepository,
     private readonly validator: ITaskValidator,
   ) {
-
+    this.create = this.create.bind(this);
+    this.find = this.find.bind(this);
+    this.findAllByUser = this.findAllByUser.bind(this);
+    this.findById = this.findById.bind(this);
+    this.update = this.update.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   public async create(task: ITaskSchema) {

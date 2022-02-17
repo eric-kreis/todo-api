@@ -10,6 +10,7 @@ class TaskService implements ITaskController {
   ) {
     this.create = this.create.bind(this);
     this.find = this.find.bind(this);
+    this.findAllByUser = this.findAllByUser.bind(this);
     this.findById = this.findById.bind(this);
     this.update = this.update.bind(this);
     this.delete = this.delete.bind(this);
@@ -27,6 +28,7 @@ class TaskService implements ITaskController {
     res.status(StatusCodes.OK).json({ tasks });
   }
 
+  // in the future i will implement a validation about who is requesting and what id is searching
   public async findAllByUser(req: Request, res: Response) {
     const { id: userId } = req.params;
     const tasks = await this.service.findAllByUser(userId);

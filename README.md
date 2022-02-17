@@ -12,6 +12,17 @@ Este projeto é mantido sob o mais absoluto sigilo para a Empresa Ebyrt. Se voc�
 * Digite: `yarn (ou npm install)` para instalar os pacotes (dependências);
 * Crie o arquivo `.env` no diretório raiz do projeto e escreva nele as variáveis de ambiente, elas estão no `.env.example`;
 
+### INICIALIZAÇÃO
+* Para rodar a aplicação em desenvolvimento utilze `yarn dev` ou `npm run dev`;
+* Para rodar os comandos de produção utilize `yarn build` e `yarn start` ou `npm run build` e `npm start`;
+* Para rodar os testes utilize `yarn test` ou `npm test`
+* Para rodar a cobertura de testes utilize `yarn test:coverage` ou `npm run test:coverage`
+
+### TESTES
+- Esta aplicação conta com 95% de cobertura total com testes unitários.
+
+![test_coverage](https://ibb.co/47Sv2cG)
+
 ### CONVENÇÕES
 Convenções adotadas no ambiente de trabalho para o projeto Todo API:
 * Os nomes das collections do Mongo devem ser estar de acordo com a entidade no plural: **users**, **tasks**;

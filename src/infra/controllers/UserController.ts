@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
+import cookieOptions from '../../config/cookie';
 import { IUserService, ITokenService } from '../../domains/application/service';
 import { IUserSchema } from '../../domains/data/schemas/user';
 import { IUserController } from '../../domains/infra';
@@ -20,13 +21,15 @@ class UserController implements IUserController {
   public async signin(req: Request<{}, {}, Pick<IUserSchema, 'email' | 'password'>>, res: Response) {
     const credentials = req.body;
     const user = await this.service.signin(credentials.email, credentials.password);
-    const token = this.tokenService.generate({
+    const userPayload = {
       id: user.id,
       name: user.name,
       email: user.email,
       role: user.role,
-    });
-    res.status(StatusCodes.OK).json({ token });
+    };
+    const token = this.tokenService.generate(userPayload);
+    res.cookie('token', token, cookieOptions);
+    res.status(StatusCodes.ACCEPTED).json({ token, user: userPayload });
   }
 
   public async create(req: Request<{}, {}, Omit<IUserSchema, 'role'>>, res: Response) {

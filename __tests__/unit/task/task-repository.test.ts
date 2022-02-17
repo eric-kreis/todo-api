@@ -50,6 +50,25 @@ describe('TaskRepository.find', () => {
   });
 });
 
+describe('TaskRepository.findAllByUser', () => {
+  it('should return the return of model.find', async () => {
+    const { sut, taskModelMock } = sutFactory();
+    taskModelMock.findAllByUser.mockResolvedValueOnce([bodys.task1.response]);
+    let response: any;
+
+    try {
+      response = await sut.findAllByUser('userId');
+    } catch (e) {
+      response = e;
+    }
+
+    expect(taskModelMock).toHaveBeenCalledWith('userId');
+    expect(taskModelMock.findAllByUser).toHaveBeenCalled();
+    expect(taskModelMock.findAllByUser).toHaveBeenCalledTimes(1);
+    expect(response).toStrictEqual([bodys.task1.response]);
+  });
+});
+
 describe('TaskRepository.findById', () => {
   it('should throw an error if model.findById returns null', async () => {
     const { sut, taskModelMock } = sutFactory();

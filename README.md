@@ -21,11 +21,19 @@ Convenções adotadas no ambiente de trabalho para o projeto Todo API:
 * Todos os `controllers`, `services`, `validators`, `repositories` e `models` devem respeitar os princípios SOLID e a Arquitetura em Camadas;
 
 ### ARQUITETURA
-O projeto utiliza uma Arquitetura de Software em camadas. Ela foi estruturada de forma que se adeque bem aos princípios SOLID em uma API REST e a reutilização de `classes` e `interfaces` para fazer um código mais sólido, escalável e testável. Além disso, me inspirei na arquitetura apresentada [nesse artigo](https://medium.com/perry-street-software-engineering/clean-api-architecture-2b57074084d5) do Eric Silverberg. Para ilustrar melhor, veja abaixo uma imagem da arquitetura do artigo.
+O projeto utiliza uma Arquitetura de Software em camadas. Ela foi estruturada de forma que se adeque bem aos princípios SOLID em uma API REST e a reutilização de `classes` e `interfaces` para fazer um código mais sólido, escalável e testável.
+
+**Quais são as camadas e o que elas fazem?**
+* `Data` - é a camada que está mais próxima do "núcleo" da aplicação (o Banco de Dados). Esta camada é responsável por fazer a conexão com o banco e realizar as operações de criar, ler, atualizar e deletar dados acordo com a sintaxe esperada pelo banco.
+* `Entity` - é a camada que se comunicará com as `classes` de `Data`. Esta camada contém as regras de negócio para uma entidade específica.
+* `Application` é a camada que se comunicará com as `classes` de `Entity`. Esta camada contém as regras de negócio da aplicação. Ela é responsável por validar a entrada que é esperada pela `Entity`;
+* `Infra` é a camada que se comunicará com as `classes` de `Application` e com o framework de rotas. Esta é a camada mais "superficial", ela será reponsável por estabelecer as rotas, além de receber requisições e retornar respostas para o cliente.
+
+Além disso, me inspirei na arquitetura apresentada [nesse artigo](https://medium.com/perry-street-software-engineering/clean-api-architecture-2b57074084d5) do Eric Silverberg. Para ilustrar melhor, veja abaixo uma imagem do artigo.
 
 ![The Clean API Architeture](https://miro.medium.com/max/500/1*yTDpfIqqAdeKRhbHwfhrYQ.png)
 
-#### ESTRUTURA DE PASTAS E ARQUIVOS SIMPLIFICADA
+#### ESTRUTURA SIMPLIFICADA DE PASTAS E ARQUIVOS
 ```
 |-- rootDir
     |-- .env
@@ -108,8 +116,7 @@ O projeto utiliza uma Arquitetura de Software em camadas. Ela foi estruturada de
 * Banco de dados [MongoDB](https://www.mongodb.com/pt-br) e o [MongoDB Driver](https://docs.mongodb.com/drivers/node/current/) para fazer a comunicação da API com o banco;
 
 
-
 ---
 Eric Alfinito Kreis
 ericalfinitokreis@gmail.com
-Quer me conhecer melhor? [LinkedIn](https://www.linkedin.com/in/eric-kreis/)
+Boa bater um papo? [LinkedIn](https://www.linkedin.com/in/eric-kreis/)

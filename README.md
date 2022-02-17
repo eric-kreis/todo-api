@@ -21,7 +21,16 @@ Convenções adotadas no ambiente de trabalho para o projeto Todo API:
 * Todos os `controllers`, `services`, `validators`, `repositories` e `models` devem respeitar os princípios SOLID e a Arquitetura em Camadas;
 
 ### ARQUITETURA
-O projeto utiliza uma Arquitetura de Software em camadas. Ela foi estruturada de forma que se adeque bem aos princípios SOLID em uma API REST e a reutilização de `classes` e `interfaces` para fazer um código mais sólido, escalável e fácil de ser testado.
+O projeto utiliza uma Arquitetura de Software em camadas. Ela foi estruturada de forma que se adeque bem aos princípios SOLID em uma API REST e a reutilização de `classes` e `interfaces` para fazer um código mais sólido, escalável e testável. Além disso, me inspirei na arquitetura apresentada [neste artigo](https://medium.com/perry-street-software-engineering/clean-api-architecture-2b57074084d5) do Eric Silverberg.
+
+#### COMO É SUA ESTRTURA?
+##### ESTRUTURA DE PASTAS E ARQUIVOS
+
+### BIBLIOTECAS DO PROJETO
+* [Express](https://expressjs.com/pt-br/) como framework de rotas (endpoints);
+
+* Banco de dados [MongoDB](https://www.mongodb.com/pt-br) e o [MongoDB Driver](https://docs.mongodb.com/drivers/node/current/) para fazer a comunicação da API com o banco;
+
 
 
 ---

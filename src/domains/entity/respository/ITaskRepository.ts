@@ -5,8 +5,8 @@ interface ITaskRepository {
   find(): Promise<ITaskWithId[]>;
   findAllByUser(userId: string): Promise<ITaskWithId[]>;
   findById(id: string): Promise<ITaskWithId>;
-  update(id: string, payload: Partial<ITaskSchema>): Promise<ITaskSchema>;
-  delete(id: string): Promise<ITaskSchema>;
+  update(id: string, payload: Partial<ITaskSchema>): Promise<ITaskWithId>;
+  delete(id: string): Promise<ITaskWithId>;
 }
 
 export default ITaskRepository;

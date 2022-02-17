@@ -58,8 +58,8 @@ describe('TaskService.create', () => {
 
     expect(taskValidatormock.create).toHaveBeenCalled();
     expect(taskValidatormock.create).toHaveBeenCalledTimes(1);
-    expect(taskRepositoryMock.find).toHaveBeenCalled();
-    expect(taskRepositoryMock.find).toHaveBeenCalledTimes(1);
+    expect(taskRepositoryMock.create).toHaveBeenCalled();
+    expect(taskRepositoryMock.create).toHaveBeenCalledTimes(1);
     expect(response).toBe(bodys.task1.response);
   });
 });
@@ -79,7 +79,7 @@ describe('TaskService.find', () => {
 
     expect(taskRepositoryMock.find).toHaveBeenCalled();
     expect(taskRepositoryMock.find).toHaveBeenCalledTimes(1);
-    expect(response).toBe([bodys.task1.response]);
+    expect(response).toStrictEqual([bodys.task1.response]);
   });
 });
 
@@ -98,7 +98,7 @@ describe('TaskService.findAllByUser', () => {
 
     expect(taskRepositoryMock.findAllByUser).toHaveBeenCalled();
     expect(taskRepositoryMock.findAllByUser).toHaveBeenCalledTimes(1);
-    expect(response).toBe([bodys.task1.response]);
+    expect(response).toStrictEqual([bodys.task1.response]);
   });
 });
 

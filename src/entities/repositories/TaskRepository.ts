@@ -8,6 +8,10 @@ class TaskRepository implements ITaskRepository {
   public async create(task: ITaskSchema) {
     return this.model.create(task);
   }
+
+  public async find() {
+    return this.model.find();
+  }
 }
 
 export default TaskRepository;

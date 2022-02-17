@@ -8,7 +8,6 @@ class UserRepository implements IUserRepository {
   private readonly entity: 'user';
 
   constructor(private readonly model: IUserModel) {
-    this.model = model;
     this.entity = 'user';
   }
 

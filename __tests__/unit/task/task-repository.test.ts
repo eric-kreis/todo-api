@@ -1,4 +1,5 @@
 import { TaskModel } from '../../../src/data/models';
+import DataErrorStruct from '../../../src/data/structs/DataErrorStruct';
 import { TaskRepository } from '../../../src/entities/repositories';
 import bodys from '../../mocks/bodys';
 
@@ -46,5 +47,41 @@ describe('TaskRepository.find', () => {
     expect(taskModelMock.find).toHaveBeenCalled();
     expect(taskModelMock.find).toHaveBeenCalledTimes(1);
     expect(response).toStrictEqual([bodys.task1.response]);
+  });
+});
+
+describe('TaskRepository.findById', () => {
+  it('should throw an error if model.findById returns null', async () => {
+    const { sut, taskModelMock } = sutFactory();
+    taskModelMock.findById.mockResolvedValueOnce(null);
+
+    let error: any;
+
+    try {
+      error = await sut.findById('id');
+    } catch (e) {
+      error = e;
+    }
+    expect(taskModelMock.findById).toHaveBeenCalled();
+    expect(taskModelMock.findById).toHaveBeenCalledTimes(1);
+    expect(error).toBeInstanceOf(DataErrorStruct);
+    expect(error.message).toBe('task not found');
+    expect(error.code).toBe('NOT_FOUND');
+  });
+
+  it('should return the return of model.findById', async () => {
+    const { sut, taskModelMock } = sutFactory();
+    taskModelMock.findById.mockResolvedValueOnce(bodys.task1.response);
+
+    let response: any;
+
+    try {
+      response = await sut.findById('id');
+    } catch (e) {
+      response = e;
+    }
+    expect(taskModelMock.findById).toHaveBeenCalled();
+    expect(taskModelMock.findById).toHaveBeenCalledTimes(1);
+    expect(response).toStrictEqual(bodys.task1.response);
   });
 });

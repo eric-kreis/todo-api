@@ -30,3 +30,21 @@ describe('TaskRepository.create', () => {
     expect(response).toBe(bodys.task1.response);
   });
 });
+
+describe('TaskRepository.find', () => {
+  it('should return the return of model.find', async () => {
+    const { sut, taskModelMock } = sutFactory();
+    taskModelMock.find.mockResolvedValueOnce([bodys.task1.response]);
+    let response: any;
+
+    try {
+      response = await sut.find();
+    } catch (e) {
+      response = e;
+    }
+
+    expect(taskModelMock.find).toHaveBeenCalled();
+    expect(taskModelMock.find).toHaveBeenCalledTimes(1);
+    expect(response).toStrictEqual([bodys.task1.response]);
+  });
+});

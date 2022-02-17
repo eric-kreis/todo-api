@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1645079753050" clover="3.2.0">
-  <project timestamp="1645079753051" name="All files">
-    <metrics statements="716" coveredstatements="702" conditionals="101" coveredconditionals="101" methods="72" coveredmethods="69" elements="889" coveredelements="872" complexity="0" loc="716" ncloc="716" packages="10" files="26" classes="26"/>
+<coverage generated="1645109832462" clover="3.2.0">
+  <project timestamp="1645109832463" name="All files">
+    <metrics statements="721" coveredstatements="707" conditionals="101" coveredconditionals="101" methods="72" coveredmethods="69" elements="894" coveredelements="877" complexity="0" loc="721" ncloc="721" packages="10" files="26" classes="26"/>
     <package name="__tests__">
       <metrics statements="10" coveredstatements="10" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="joiErrorFactory.ts" path="/home/eric/myProjects/todo-api/__tests__/joiErrorFactory.ts">
@@ -183,9 +183,9 @@
       </file>
     </package>
     <package name="src.application.services">
-      <metrics statements="156" coveredstatements="156" conditionals="27" coveredconditionals="27" methods="20" coveredmethods="20"/>
+      <metrics statements="161" coveredstatements="161" conditionals="27" coveredconditionals="27" methods="20" coveredmethods="20"/>
       <file name="TaskService.ts" path="/home/eric/myProjects/todo-api/src/application/services/TaskService.ts">
-        <metrics statements="51" coveredstatements="51" conditionals="9" coveredconditionals="9" methods="7" coveredmethods="7"/>
+        <metrics statements="56" coveredstatements="56" conditionals="9" coveredconditionals="9" methods="7" coveredmethods="7"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -200,43 +200,48 @@
         <line num="12" count="8" type="stmt"/>
         <line num="13" count="8" type="stmt"/>
         <line num="14" count="8" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="19" count="1" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="16" count="8" type="stmt"/>
+        <line num="17" count="8" type="stmt"/>
+        <line num="18" count="8" type="stmt"/>
+        <line num="19" count="8" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
+        <line num="21" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="24" count="1" type="stmt"/>
-        <line num="25" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="25" count="1" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
-        <line num="29" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="30" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="31" count="1" type="stmt"/>
         <line num="32" count="1" type="stmt"/>
-        <line num="33" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="34" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="35" count="1" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
-        <line num="37" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="38" count="2" type="stmt"/>
-        <line num="39" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="39" count="1" type="stmt"/>
         <line num="40" count="1" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="43" count="1" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
+        <line num="42" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="44" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="45" count="1" type="stmt"/>
-        <line num="46" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="46" count="1" type="stmt"/>
         <line num="47" count="1" type="stmt"/>
         <line num="48" count="1" type="stmt"/>
         <line num="49" count="1" type="stmt"/>
         <line num="50" count="1" type="stmt"/>
-        <line num="51" count="1" type="stmt"/>
+        <line num="51" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
       </file>
       <file name="TokenService.ts" path="/home/eric/myProjects/todo-api/src/application/services/TokenService.ts">
         <metrics statements="45" coveredstatements="45" conditionals="5" coveredconditionals="5" methods="3" coveredmethods="3"/>

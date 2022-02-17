@@ -23,7 +23,7 @@ Convenções adotadas no ambiente de trabalho para o projeto Todo API:
 ### ARQUITETURA
 O projeto utiliza uma Arquitetura de Software em camadas. Ela foi estruturada de forma que se adeque bem aos princípios SOLID em uma API REST e a reutilização de `classes` e `interfaces` para fazer um código mais sólido, escalável e testável. Além disso, me inspirei na arquitetura apresentada [nesse artigo](https://medium.com/perry-street-software-engineering/clean-api-architecture-2b57074084d5) do Eric Silverberg. Para ilustrar melhor, veja abaixo uma imagem da arquitetura do artigo.
 
-![The Clean API Architeture](https://miro.medium.com/max/120/1*yTDpfIqqAdeKRhbHwfhrYQ.png)
+![The Clean API Architeture](https://miro.medium.com/max/500/1*yTDpfIqqAdeKRhbHwfhrYQ.png)
 
 #### ESTRUTURA DE PASTAS E ARQUIVOS SIMPLIFICADA
 ```

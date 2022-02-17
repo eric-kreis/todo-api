@@ -34,6 +34,12 @@ class TaskRepository implements ITaskRepository {
     if (!updatedTask) throw new DataErrorStruct(Codes.NOT_FOUND, `${this.entity} not found`);
     return updatedTask;
   }
+
+  public async delete(id: string) {
+    const deletedTask = await this.model.delete(id);
+    if (!deletedTask) throw new DataErrorStruct(Codes.NOT_FOUND, `${this.entity} not found`);
+    return deletedTask;
+  }
 }
 
 export default TaskRepository;

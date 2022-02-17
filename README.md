@@ -21,10 +21,86 @@ Convenções adotadas no ambiente de trabalho para o projeto Todo API:
 * Todos os `controllers`, `services`, `validators`, `repositories` e `models` devem respeitar os princípios SOLID e a Arquitetura em Camadas;
 
 ### ARQUITETURA
-O projeto utiliza uma Arquitetura de Software em camadas. Ela foi estruturada de forma que se adeque bem aos princípios SOLID em uma API REST e a reutilização de `classes` e `interfaces` para fazer um código mais sólido, escalável e testável. Além disso, me inspirei na arquitetura apresentada [neste artigo](https://medium.com/perry-street-software-engineering/clean-api-architecture-2b57074084d5) do Eric Silverberg.
+O projeto utiliza uma Arquitetura de Software em camadas. Ela foi estruturada de forma que se adeque bem aos princípios SOLID em uma API REST e a reutilização de `classes` e `interfaces` para fazer um código mais sólido, escalável e testável. Além disso, me inspirei na arquitetura apresentada [nesse artigo](https://medium.com/perry-street-software-engineering/clean-api-architecture-2b57074084d5) do Eric Silverberg. Para ilustrar melhor, veja abaixo uma imagem da arquitetura do artigo.
 
-#### COMO É SUA ESTRTURA?
-##### ESTRUTURA DE PASTAS E ARQUIVOS
+![The Clean API Architeture](https://miro.medium.com/max/120/1*yTDpfIqqAdeKRhbHwfhrYQ.png)
+
+#### ESTRUTURA DE PASTAS E ARQUIVOS SIMPLIFICADA
+```
+|-- rootDir
+    |-- .env
+    |-- .env.example
+    |-- .eslintignore
+    |-- .eslintrc.json
+    |-- .gitignore
+    |-- LICENSE
+    |-- README.md
+    |-- ecosystem.config.yml
+    |-- jest.config.ts
+    |-- package.json
+    |-- tsconfig.eslint.json
+    |-- tsconfig.json
+    |-- yarn.lock
+    |-- __tests__
+    |   |-- integration
+    |   |-- mocks
+    |   |-- unit
+    |-- coverage
+    |-- src
+        |-- @types
+        |-- api
+        |   |-- app.ts
+        |   |-- server.ts
+        |-- application
+        |   |-- joiSchemas
+        |   |   |-- JOI-SCHEMAS
+        |   |-- services
+        |   |   |-- SERVICE-CLASSES
+        |   |-- validators
+        |       |-- VALIDATOR-CLASSES
+        |-- config
+        |   |-- CONFIG-FILES
+        |-- data
+        |   |-- connection.ts
+        |   |-- models
+        |   |   |-- MODEL-CLASSES
+        |   |-- structs
+        |       |-- STRUCT-CLASSES
+        |-- domains
+        |   |-- application
+        |   |   |-- service
+        |   |   |   |-- SERVICE-INTERFACES
+        |   |   |-- validators
+        |   |       |-- VALIDATOR-INTERFACES
+        |   |-- data
+        |   |   |-- model
+        |   |   |   |-- MODEL-INTERFACES
+        |   |   |-- schemas
+        |   |       |-- SCHEMA-INTERFACES
+        |   |-- entity
+        |   |   |-- respository
+        |   |       |-- REPOSITORY-INTERFACES
+        |   |-- infra
+        |       |-- CONTROLLER-INTERFACES
+        |-- entities
+        |   |-- builders
+        |   |   |-- BUILDER-CLASSES
+        |   |-- repositories
+        |       |-- REPOSITORY-CLASSES
+        |-- helpers
+        |   |-- HELPER-FUNCTIONS
+        |-- infra
+        |   |-- controllers
+        |   |   |-- CONTROLLER-CLASSES
+        |   |-- initializers
+        |   |   |-- INITIALIZER-CLASSES
+        |   |-- middlewares
+        |   |   |-- MIDDLEWARE-HANDLERS
+        |   |-- routers
+        |       |-- ROUTER-CLASSES
+        |-- utils
+            |-- UTIL-VARIABLES
+```
 
 ### BIBLIOTECAS DO PROJETO
 * [Express](https://expressjs.com/pt-br/) como framework de rotas (endpoints);

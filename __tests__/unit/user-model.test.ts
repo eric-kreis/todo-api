@@ -1,7 +1,7 @@
 import { Db, MongoClient, ObjectId } from 'mongodb';
 import { UserModel } from '../../src/data/models';
-import bodys from '../bodys';
-import connection from '../db';
+import bodys from '../mocks/bodys';
+import connection from '../mocks/db';
 import encryptAndDecryptMock from '../mocks/encryptDecrypt';
 
 const dbUser = {

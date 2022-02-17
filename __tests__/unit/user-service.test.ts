@@ -5,7 +5,7 @@ import { IUserSchema } from '../../src/domains/data/schemas/user';
 import RequestErrorBuilder from '../../src/entities/builders/RequestErrorBuilder';
 import { UserRepository } from '../../src/entities/repositories';
 import joiErrorFactory from '../joiErrorFactory';
-import bodys from '../bodys';
+import bodys from '../mocks/bodys';
 
 jest.mock('../../src/application/validators');
 jest.mock('../../src/entities/repositories');

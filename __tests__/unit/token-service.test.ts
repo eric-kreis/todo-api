@@ -1,6 +1,6 @@
 import { TokenService } from '../../src/application/services';
 import RequestErrorBuilder from '../../src/entities/builders/RequestErrorBuilder';
-import bodys from '../bodys';
+import bodys from '../mocks/bodys';
 
 // System Under Testing factory;
 const sutFactory = () => {

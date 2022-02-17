@@ -1,6 +1,6 @@
 import { UserModel } from '../../src/data/models';
 import { UserRepository } from '../../src/entities/repositories';
-import bodys from '../bodys';
+import bodys from '../mocks/bodys';
 import DataErrorStruct from '../../src/data/structs/DataErrorStruct';
 
 jest.mock('../../src/data/models');

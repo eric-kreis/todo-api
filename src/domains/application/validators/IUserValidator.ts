@@ -3,7 +3,7 @@ import { IUserSchema } from '../../data/schemas/user';
 
 interface IUserValidator {
   create(user: Omit<IUserSchema, 'role'>): ValidationResult<
-  Omit<IUserSchema, 'role'>>;
+  Partial<IUserSchema>>;
 
   update(payload: Partial<IUserSchema>): ValidationResult<
   Partial<IUserSchema>>;

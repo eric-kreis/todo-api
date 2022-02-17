@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { ITaskController } from '../../domains/infra';
 import { RouteBuilder } from '../../entities/builders';
+import { auth } from '../middlewares';
 import BaseRouter from './BaseRouter';
 
 class TaskRouter extends BaseRouter {
@@ -28,6 +29,7 @@ class TaskRouter extends BaseRouter {
     return new RouteBuilder({
       router: this.router,
       path: '/',
+      middlewares: [auth],
       method: 'post',
       controller: this.controller.create,
     });
@@ -37,6 +39,7 @@ class TaskRouter extends BaseRouter {
     return new RouteBuilder({
       router: this.router,
       path: '/',
+      middlewares: [auth],
       method: 'get',
       controller: this.controller.find,
     });
@@ -55,6 +58,7 @@ class TaskRouter extends BaseRouter {
     return new RouteBuilder({
       router: this.router,
       path: '/user/:id',
+      middlewares: [auth],
       method: 'get',
       controller: this.controller.findAllByUser,
     });
@@ -64,6 +68,7 @@ class TaskRouter extends BaseRouter {
     return new RouteBuilder({
       router: this.router,
       path: '/:id',
+      middlewares: [auth],
       method: 'put',
       controller: this.controller.update,
     });
@@ -73,6 +78,7 @@ class TaskRouter extends BaseRouter {
     return new RouteBuilder({
       router: this.router,
       path: '/:id',
+      middlewares: [auth],
       method: 'delete',
       controller: this.controller.delete,
     });

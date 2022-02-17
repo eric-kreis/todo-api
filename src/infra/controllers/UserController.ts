@@ -20,7 +20,12 @@ class UserController implements IUserController {
   public async signin(req: Request<{}, {}, Pick<IUserSchema, 'email' | 'password'>>, res: Response) {
     const credentials = req.body;
     const user = await this.service.signin(credentials.email, credentials.password);
-    const token = this.tokenService.generate({ id: user.id, email: user.email, role: user.role });
+    const token = this.tokenService.generate({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+    });
     res.status(StatusCodes.OK).json({ token });
   }
 

@@ -29,7 +29,7 @@ abstract class SeedBase<TDocSchema> {
     const { insertedCount } = await this.collection.insertMany(documents);
     if (insertedCount) {
       console.log(`
-collection ${insertedCount} documents successfully inserted in ${this.collectionName} collection
+${insertedCount} documents successfully inserted in ${this.collectionName} collection
 ${'='.repeat(64)}
 `);
     }

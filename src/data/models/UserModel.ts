@@ -1,6 +1,6 @@
 import { Db } from 'mongodb';
-import { IUserModel } from '../../domains/data/model';
-import { IUserSchema } from '../../domains/data/schemas/user';
+import { IUserModel } from '../../interfaces/data/model';
+import { IUserSchema } from '../../interfaces/data/schemas/user';
 import BaseModel from './BaseModel';
 
 type CryptoFunc = (payload: string) => string;

@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
-import { ITaskWithId } from '../../src/domains/data/schemas/task';
-import { IUserWithId } from '../../src/domains/data/schemas/user';
+import { ITaskWithId } from '../../src/interfaces/data/schemas/task';
+import { IUserWithId } from '../../src/interfaces/data/schemas/user';
 
 interface IBodys {
   user: {

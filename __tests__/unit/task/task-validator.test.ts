@@ -1,6 +1,6 @@
 import { TaskValidator } from '../../../src/application/validators';
 import taskSchemas from '../../../src/application/joiSchemas/task';
-import { ITaskSchema } from '../../../src/domains/data/schemas/task';
+import { ITaskSchema } from '../../../src/interfaces/data/schemas/task';
 import joiErrorFactory from '../../joiErrorFactory';
 
 // System Under Testing factory;

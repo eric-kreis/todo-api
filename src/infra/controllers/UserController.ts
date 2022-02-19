@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import cookieOptions from '../../config/cookie';
-import { IUserService, ITokenService } from '../../domains/application/service';
-import { IUserSchema } from '../../domains/data/schemas/user';
-import { IUserController } from '../../domains/infra';
+import { IUserService, ITokenService } from '../../interfaces/application/service';
+import { IUserSchema } from '../../interfaces/data/schemas/user';
+import { IUserController } from '../../interfaces/infra';
 
 class UserController implements IUserController {
   constructor(

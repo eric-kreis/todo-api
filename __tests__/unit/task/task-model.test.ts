@@ -1,6 +1,6 @@
 import { Db, MongoClient, ObjectId } from 'mongodb';
 import { TaskModel } from '../../../src/data/models';
-import { ITaskSchema } from '../../../src/domains/data/schemas/task';
+import { ITaskSchema } from '../../../src/interfaces/data/schemas/task';
 import bodys from '../../mocks/bodys';
 import connection from '../../mocks/db';
 import encryptAndDecryptMock from '../../mocks/encryptDecrypt';

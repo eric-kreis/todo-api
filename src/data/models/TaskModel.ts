@@ -1,6 +1,6 @@
 import { Db, ObjectId } from 'mongodb';
-import { ITaskModel } from '../../domains/data/model';
-import { ITaskSchema } from '../../domains/data/schemas/task';
+import { ITaskModel } from '../../interfaces/data/model';
+import { ITaskSchema } from '../../interfaces/data/schemas/task';
 import BaseModel from './BaseModel';
 
 class TaskModel extends BaseModel<ITaskSchema> implements ITaskModel {

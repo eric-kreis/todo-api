@@ -1,6 +1,6 @@
 import { ObjectSchema } from 'joi';
-import { IUserValidator } from '../../domains/application/validators';
-import { IUserSchema } from '../../domains/data/schemas/user';
+import { IUserValidator } from '../../interfaces/application/validators';
+import { IUserSchema } from '../../interfaces/data/schemas/user';
 import BaseValidator from './BaseValidator';
 
 class UserValidator extends BaseValidator<IUserSchema> implements IUserValidator {

@@ -1,7 +1,7 @@
 import { ValidationResult } from 'joi';
 import { TaskService } from '../../../src/application/services';
 import { TaskValidator } from '../../../src/application/validators';
-import { ITaskSchema } from '../../../src/domains/data/schemas/task';
+import { ITaskSchema } from '../../../src/interfaces/data/schemas/task';
 import { TaskRepository } from '../../../src/entities/repositories';
 import RequestErrorBuilder from '../../../src/entities/builders/RequestErrorBuilder';
 import joiErrorFactory from '../../joiErrorFactory';

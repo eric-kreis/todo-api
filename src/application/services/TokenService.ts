@@ -1,6 +1,6 @@
 import { StatusCodes } from 'http-status-codes';
 import { sign, verify, SignOptions } from 'jsonwebtoken';
-import ITokenService from '../../domains/application/service/ITokenService';
+import ITokenService from '../../interfaces/application/service/ITokenService';
 import RequestErrorBuilder from '../../entities/builders/RequestErrorBuilder';
 
 const { JWT_SECRET = 'superSecret2' } = process.env;

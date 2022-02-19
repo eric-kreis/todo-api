@@ -5,8 +5,8 @@ import {
   ObjectId,
   OptionalUnlessRequiredId,
 } from 'mongodb';
-import { IModel } from '../../domains/data/model';
-import IDefaultKeys from '../../domains/data/IDefaultKeys';
+import { IModel } from '../../interfaces/data/model';
+import IDefaultKeys from '../../interfaces/data/IDefaultKeys';
 
 abstract class BaseModel<TDocSchema extends IDefaultKeys> implements IModel<TDocSchema> {
   private readonly collection: Collection<TDocSchema & IDefaultKeys>;

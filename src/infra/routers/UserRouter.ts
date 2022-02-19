@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { IUserController } from '../../domains/infra';
+import { IUserController } from '../../interfaces/infra';
 import { RouteBuilder } from '../../entities/builders';
 import BaseRouter from './BaseRouter';
 

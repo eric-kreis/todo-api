@@ -1,7 +1,7 @@
 import DataErrorStruct from '../../data/structs/DataErrorStruct';
-import { ITaskModel } from '../../domains/data/model';
-import { ITaskSchema } from '../../domains/data/schemas/task';
-import { ITaskRepository } from '../../domains/entity/respository';
+import { ITaskModel } from '../../interfaces/data/model';
+import { ITaskSchema } from '../../interfaces/data/schemas/task';
+import { ITaskRepository } from '../../interfaces/entity/respository';
 import Codes from '../../utils/Codes';
 
 class TaskRepository implements ITaskRepository {

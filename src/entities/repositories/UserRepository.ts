@@ -1,7 +1,7 @@
 import DataErrorStruct from '../../data/structs/DataErrorStruct';
-import IUserRepository from '../../domains/entity/respository/IUserRepository';
-import { IUserModel } from '../../domains/data/model';
-import { IUserSchema } from '../../domains/data/schemas/user';
+import IUserRepository from '../../interfaces/entity/respository/IUserRepository';
+import { IUserModel } from '../../interfaces/data/model';
+import { IUserSchema } from '../../interfaces/data/schemas/user';
 import Codes from '../../utils/Codes';
 
 class UserRepository implements IUserRepository {

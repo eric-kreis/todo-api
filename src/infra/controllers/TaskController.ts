@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import { ITaskService } from '../../domains/application/service';
-import { ITaskSchema } from '../../domains/data/schemas/task';
-import { ITaskController } from '../../domains/infra';
+import { ITaskService } from '../../interfaces/application/service';
+import { ITaskSchema } from '../../interfaces/data/schemas/task';
+import { ITaskController } from '../../interfaces/infra';
 
 class TaskService implements ITaskController {
   constructor(

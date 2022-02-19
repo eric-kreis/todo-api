@@ -1,8 +1,8 @@
 import { StatusCodes } from 'http-status-codes';
-import { ITaskService } from '../../domains/application/service';
-import { ITaskValidator } from '../../domains/application/validators';
-import { ITaskSchema } from '../../domains/data/schemas/task';
-import { ITaskRepository } from '../../domains/entity/respository';
+import { ITaskService } from '../../interfaces/application/service';
+import { ITaskValidator } from '../../interfaces/application/validators';
+import { ITaskSchema } from '../../interfaces/data/schemas/task';
+import { ITaskRepository } from '../../interfaces/entity/respository';
 import { RequestErrorBuilder } from '../../entities/builders';
 
 class TaskService implements ITaskService {

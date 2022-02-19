@@ -1,8 +1,8 @@
 import { StatusCodes } from 'http-status-codes';
-import { IUserService } from '../../domains/application/service';
-import { IUserValidator } from '../../domains/application/validators';
-import { IUserRepository } from '../../domains/entity/respository';
-import { IUserSchema } from '../../domains/data/schemas/user';
+import { IUserService } from '../../interfaces/application/service';
+import { IUserValidator } from '../../interfaces/application/validators';
+import { IUserRepository } from '../../interfaces/entity/respository';
+import { IUserSchema } from '../../interfaces/data/schemas/user';
 import RequestErrorBuilder from '../../entities/builders/RequestErrorBuilder';
 
 class UserService implements IUserService {

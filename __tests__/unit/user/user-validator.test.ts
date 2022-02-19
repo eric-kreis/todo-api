@@ -1,6 +1,6 @@
 import { UserValidator } from '../../../src/application/validators';
 import userSchemas from '../../../src/application/joiSchemas/user';
-import { IUserSchema } from '../../../src/domains/data/schemas/user';
+import { IUserSchema } from '../../../src/interfaces/data/schemas/user';
 import joiErrorFactory from '../../joiErrorFactory';
 
 // System Under Testing factory;

@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
-import { ITokenService, IUserService } from '../../domains/application/service';
-import { IUserWithId } from '../../domains/data/schemas/user';
+import { ITokenService, IUserService } from '../../interfaces/application/service';
+import { IUserWithId } from '../../interfaces/data/schemas/user';
 
 type UserPayloadType = Omit<IUserWithId, 'createdAt' | 'updatedAt' | 'password'>;
 

@@ -1,5 +1,5 @@
 import { Db } from 'mongodb';
-import { IUserSchema } from '../../../domains/data/schemas/user';
+import { IUserSchema } from '../../../interfaces/data/schemas/user';
 import encrypt from '../../../helpers/encrypt';
 import SeedBase from '../SeedBase';
 import * as userData from './users.json';

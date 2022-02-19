@@ -1,7 +1,7 @@
 import { ValidationResult } from 'joi';
 import { UserService } from '../../../src/application/services';
 import { UserValidator } from '../../../src/application/validators';
-import { IUserSchema } from '../../../src/domains/data/schemas/user';
+import { IUserSchema } from '../../../src/interfaces/data/schemas/user';
 import RequestErrorBuilder from '../../../src/entities/builders/RequestErrorBuilder';
 import { UserRepository } from '../../../src/entities/repositories';
 import joiErrorFactory from '../../joiErrorFactory';

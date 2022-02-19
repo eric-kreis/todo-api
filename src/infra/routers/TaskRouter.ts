@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { ITaskController } from '../../domains/infra';
+import { ITaskController } from '../../interfaces/infra';
 import { RouteBuilder } from '../../entities/builders';
 import BaseRouter from './BaseRouter';
 

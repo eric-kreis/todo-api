@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import { IUserController } from '../../domains/infra';
 import { RouteBuilder } from '../../entities/builders';
-import { auth } from '../middlewares';
 import BaseRouter from './BaseRouter';
 
 class UserRouter extends BaseRouter {
@@ -50,7 +49,6 @@ class UserRouter extends BaseRouter {
     return new RouteBuilder({
       router: this.router,
       path: '/',
-      middlewares: [auth],
       method: 'get',
       controller: this.controller.find,
     });
@@ -69,7 +67,6 @@ class UserRouter extends BaseRouter {
     return new RouteBuilder({
       router: this.router,
       path: '/:id',
-      middlewares: [auth],
       method: 'put',
       controller: this.controller.update,
     });
@@ -79,7 +76,6 @@ class UserRouter extends BaseRouter {
     return new RouteBuilder({
       router: this.router,
       path: '/:id',
-      middlewares: [auth],
       method: 'delete',
       controller: this.controller.delete,
     });

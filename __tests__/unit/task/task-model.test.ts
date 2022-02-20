@@ -13,6 +13,8 @@ describe('TASK MODEL', () => {
   let userId: string;
   let task1Id: string;
 
+  const task1AfterCreate = { ...bodys.task1.create, status: 'todo' };
+
   beforeAll(async () => {
     connect = await connection();
     db = connect.db();
@@ -59,7 +61,7 @@ describe('TASK MODEL', () => {
       const createdTask = await sut.create({ ...bodys.task1.create, userId } as ITaskSchema);
       task1Id = createdTask.id;
       expect(createdTask).not.toBeNull();
-      expect(createdTask).toMatchObject({ ...bodys.task1.create });
+      expect(createdTask).toMatchObject({ ...task1AfterCreate });
     });
   });
 
@@ -68,7 +70,7 @@ describe('TASK MODEL', () => {
       const tasks = await sut.find();
       expect(tasks).toHaveLength(4);
       expect(tasks[3]).not.toBeNull();
-      expect(tasks[3]).toMatchObject({ ...bodys.task1.create });
+      expect(tasks[3]).toMatchObject({ ...task1AfterCreate });
     });
   });
 
@@ -83,10 +85,10 @@ describe('TASK MODEL', () => {
       expect(response).toHaveLength(0);
     });
 
-    it('should return the user if user exists in DB', async () => {
+    it('should return the user tasks if user exists in DB', async () => {
       const tasks = await sut.findAllByUser(userId);
       expect(tasks).toEqual(expect.arrayContaining([
-        expect.objectContaining({ ...bodys.task1.create }),
+        expect.objectContaining({ ...task1AfterCreate }),
         expect.objectContaining({ ...bodys.task2.create }),
         expect.objectContaining({ ...bodys.task3.create }),
         expect.objectContaining({ ...bodys.task4.create }),
@@ -107,7 +109,7 @@ describe('TASK MODEL', () => {
 
     it('should return the task if it was found in DB', async () => {
       const task = await sut.findById(task1Id);
-      expect(task).toMatchObject({ ...bodys.task1.create });
+      expect(task).toMatchObject({ ...task1AfterCreate });
     });
   });
 
@@ -126,13 +128,13 @@ describe('TASK MODEL', () => {
 
     it('should return the updated task with id', async () => {
       const updatedUser = await sut.update(task1Id, { text: newText });
-      expect(updatedUser).toMatchObject({ ...bodys.task1.create, text: newText });
+      expect(updatedUser).toMatchObject({ ...task1AfterCreate, text: newText });
     });
   });
 
   it('Check if task was updated', async () => {
     const updatedUserAfterUpdate = await db.collection('tasks').findOne(new ObjectId(task1Id));
-    expect(updatedUserAfterUpdate).toMatchObject({ ...bodys.task1.create, text: newText });
+    expect(updatedUserAfterUpdate).toMatchObject({ ...task1AfterCreate, text: newText });
   });
 
   describe('TaskModel.delete', () => {

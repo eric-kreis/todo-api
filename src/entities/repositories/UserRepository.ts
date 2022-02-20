@@ -3,7 +3,7 @@ import IUserRepository from '../../interfaces/entity/respository/IUserRepository
 import { IUserModel } from '../../interfaces/data/model';
 import { IUserSchema } from '../../interfaces/data/schemas/user';
 import Codes from '../../utils/Codes';
-import { BaseRepository } from '.';
+import BaseRepository from './BaseRepository';
 
 class UserRepository extends BaseRepository<IUserSchema> implements IUserRepository {
   private readonly entity: 'user';

@@ -20,8 +20,10 @@ describe('TaskRepository.create', () => {
     taskModelMock.create.mockResolvedValueOnce(bodys.task1.response);
     let response: any;
 
+    const { status, ...rest } = { ...bodys.task1.response };
+
     try {
-      response = await sut.create(bodys.task1.response);
+      response = await sut.create(rest);
     } catch (e) {
       response = e;
     }

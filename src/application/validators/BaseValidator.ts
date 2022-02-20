@@ -1,6 +1,7 @@
 import { ObjectSchema } from 'joi';
+import { IValidator } from '../../interfaces/application/validators';
 
-abstract class BaseValidator<TDocSchema> {
+abstract class BaseValidator<TDocSchema> implements IValidator<TDocSchema> {
   constructor(
     public readonly createSchema: ObjectSchema<Partial<TDocSchema>>,
     public readonly updateSchema: ObjectSchema<Partial<TDocSchema>>,

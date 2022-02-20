@@ -29,16 +29,17 @@ abstract class BaseModel<TDocSchema extends IDefaultKeys> implements IModel<TDoc
   }
 
   // public
-  public async create(document: OptionalUnlessRequiredId<TDocSchema>) {
+  public async create(document: TDocSchema) {
     const currentDate = new Date();
     const newDoc = {
       ...document,
       createdAt: currentDate,
       updatedAt: currentDate,
     };
-    const { insertedId } = await this.collection.insertOne(newDoc);
-    const { _id: ID, ...rest } = newDoc;
-    return { id: insertedId.toString(), ...rest };
+    const { insertedId } = await this.collection.insertOne(
+      newDoc as OptionalUnlessRequiredId<TDocSchema>,
+    );
+    return { id: insertedId.toString(), ...newDoc };
   }
 
   public async find() {

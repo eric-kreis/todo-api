@@ -1,10 +1,10 @@
-import { OptionalUnlessRequiredId, WithId } from 'mongodb';
+import { WithId } from 'mongodb';
 
 type SchemaWithId<TDocSchema> = { id: string } & TDocSchema;
 
 interface IRepository<TDocSchema> {
-  create(doc: OptionalUnlessRequiredId<TDocSchema>): Promise<
-  SchemaWithId<Omit<OptionalUnlessRequiredId<TDocSchema>, '_id'>>>;
+  create(doc: TDocSchema): Promise<
+  SchemaWithId<TDocSchema>>;
 
   find(): Promise<
   SchemaWithId<Omit<WithId<TDocSchema>, '_id'>>[]>;

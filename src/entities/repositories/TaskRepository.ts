@@ -9,7 +9,7 @@ class TaskRepository extends BaseRepository<ITaskSchema> implements ITaskReposit
   }
 
   public async create(task: Omit<ITaskSchema, 'status'>) {
-    return this.model.create(task);
+    return super.create(task as ITaskSchema);
   }
 
   public async findAllByUser(userId: string) {

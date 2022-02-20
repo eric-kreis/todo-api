@@ -1,4 +1,3 @@
-import { OptionalUnlessRequiredId } from 'mongodb';
 import DataErrorStruct from '../../data/structs/DataErrorStruct';
 import { IModel } from '../../interfaces/data/model';
 import { IRepository } from '../../interfaces/entity/respository';
@@ -10,7 +9,7 @@ abstract class BaseRepository<TDocSchema> implements IRepository<TDocSchema> {
     private readonly childEntity: string,
   ) {}
 
-  public async create(doc: OptionalUnlessRequiredId<TDocSchema>) {
+  public async create(doc: TDocSchema) {
     return this.childModel.create(doc);
   }
 

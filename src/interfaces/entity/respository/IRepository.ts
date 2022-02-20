@@ -3,7 +3,7 @@ import { WithId } from 'mongodb';
 type SchemaWithId<TDocSchema> = { id: string } & TDocSchema;
 
 interface IRepository<TDocSchema> {
-  create(doc: TDocSchema): Promise<SchemaWithId<TDocSchema>>;
+  create(doc: Partial<TDocSchema>): Promise<SchemaWithId<TDocSchema>>;
 
   find(): Promise<
   SchemaWithId<Omit<WithId<TDocSchema>, '_id'>>[]>;

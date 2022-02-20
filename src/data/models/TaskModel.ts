@@ -8,6 +8,10 @@ class TaskModel extends BaseModel<ITaskSchema> implements ITaskModel {
     super(db, 'tasks');
   }
 
+  public async create(task: Omit<ITaskSchema, 'status'>) {
+    return super.create({ ...task, status: 'doing' });
+  }
+
   public async findAllByUser(userId: string) {
     if (!ObjectId.isValid(userId)) return [];
     return super.findAll({ userId });

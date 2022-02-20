@@ -1,7 +1,7 @@
 import { ITaskSchema, ITaskWithId } from '../schemas/task';
 
 interface ITaskModel {
-  create(task: ITaskSchema): Promise<ITaskWithId>;
+  create(task: Omit<ITaskSchema, 'status'>): Promise<ITaskWithId>;
 
   find(): Promise<ITaskWithId[]>;
 

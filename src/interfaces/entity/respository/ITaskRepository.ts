@@ -1,7 +1,7 @@
 import { ITaskSchema, ITaskWithId } from '../../data/schemas/task';
 
 interface ITaskRepository {
-  create(task: ITaskSchema): Promise<ITaskWithId>;
+  create(task: Omit<ITaskSchema, 'status'>): Promise<ITaskWithId>;
   find(): Promise<ITaskWithId[]>;
   findAllByUser(userId: string): Promise<ITaskWithId[]>;
   findById(id: string): Promise<ITaskWithId>;

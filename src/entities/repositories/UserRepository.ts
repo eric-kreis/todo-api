@@ -3,11 +3,13 @@ import IUserRepository from '../../interfaces/entity/respository/IUserRepository
 import { IUserModel } from '../../interfaces/data/model';
 import { IUserSchema } from '../../interfaces/data/schemas/user';
 import Codes from '../../utils/Codes';
+import { BaseRepository } from '.';
 
-class UserRepository implements IUserRepository {
+class UserRepository extends BaseRepository<IUserSchema> implements IUserRepository {
   private readonly entity: 'user';
 
   constructor(private readonly model: IUserModel) {
+    super(model, 'user');
     this.entity = 'user';
   }
 
@@ -20,16 +22,6 @@ class UserRepository implements IUserRepository {
       );
     }
     return this.model.create(user);
-  }
-
-  public async find() {
-    return this.model.find();
-  }
-
-  public async findById(id: string) {
-    const user = await this.model.findById(id);
-    if (!user) throw new DataErrorStruct(Codes.NOT_FOUND, `${this.entity} not found`);
-    return user;
   }
 
   public async findByCredentials(email: string, password: string) {
@@ -51,12 +43,6 @@ class UserRepository implements IUserRepository {
     const updatedUser = await this.model.update(id, payload);
     if (!updatedUser) throw new DataErrorStruct(Codes.NOT_FOUND, `${this.entity} not found`);
     return updatedUser;
-  }
-
-  public async delete(id: string) {
-    const deletedUser = await this.model.delete(id);
-    if (!deletedUser) throw new DataErrorStruct(Codes.NOT_FOUND, `${this.entity} not found`);
-    return deletedUser;
   }
 }
 

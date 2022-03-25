@@ -3,9 +3,6 @@
 ### O QUE É
 O Projeto é uma Interface de Programação de Aplicação (API) que será o coração para uma aplicação Front-end.
 
-### A QUEM SE DESTINA / OBJETIVO
-Este projeto é mantido sob o mais absoluto sigilo para a Empresa Ebyrt. Se você está vendo isso certamente você faz parte do projeto. O objetivo deste documento é facilitar a compreenção do escopo do que foi desenvolvido e de como funciona.
-
 ### INSTALAÇÃO LOCAL
 * Instale o NodeJS, um gerenciador de pacotes Node (npm ou yarn) e o banco de dados MongoDB;
 * Em seu servidor local baixe o projeto usando `git clone git@github.com:eric-kreis/todo-api.git`;
